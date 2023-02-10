@@ -1,0 +1,21 @@
+.menu-after {
+    color: #1429a9;
+    font-size: 18px;
+    display: flex;
+    list-style: none;
+    position: relative;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.menu-after > li:hover {
+    color: #2c3fbe;
+}
+.menu-after::before {
+    content: '>';
+    position: absolute;
+    font-family: monospace;
+    font-size: 40px;
+    left: -30px;
+    line-height: 20px;
+
+}
