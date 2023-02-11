@@ -17,7 +17,6 @@
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
-    "@types/styled-components": "^5.1.26",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",
@@ -26,7 +25,10 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@react-three/fiber": "^8.11.0",
     "@storybook/react": "6.4.22",
+    "@types/styled-components": "^5.1.26",
+    "@types/three": "^0.149.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "eslint-config-prettier": "^8.6.0",
@@ -35,9 +37,12 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "framer-motion": "^9.0.2",
     "jest-styled-components": "^7.1.1",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
+    "styled-components": "^5.3.6",
+    "three": "^0.149.0",
     "webpack": "5.75.0"
   },
   "resolutions": {

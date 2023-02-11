@@ -4,7 +4,6 @@ import Grid from "@mui/material/Grid";
 import Navbar from "../components/navbar/Navbar";
 
 
-
 const homeStyle = {
   headerHome: {
     textAlign: 'center',

@@ -1,7 +1,7 @@
 import { Button, Container } from "@mui/material"
 import AppBar from "@mui/material/AppBar"
 import Grid from "@mui/material/Grid"
-
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import './Navbar.css'
 
 const navbarStyle = {
@@ -48,7 +48,16 @@ const Navbar = () => {
         <Grid container flexDirection='column' height='100%' s  >
             <Grid item style={navbarStyle.containerItemStyle} >
                 <p style={{}}>HENRIQUE MAGNO</p>
-                <p style={{fontWeight: '200'}}>PORTFÓLIO</p>
+                <div style={{
+                    cursor: 'pointer',
+                    marginTop: '10px',
+                    display: 'flex',
+                     justifyContent: 'space-around',
+                     width: '120px',
+                    }} >
+                    <p style={{fontWeight: '200'}}>SETTINGS</p>
+                    <div className="setting-icon" > <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon> </div>
+                </div>
            </Grid>
             <Grid item style={{...navbarStyle.containerItemStyle, ...navbarStyle.containerItemStyle2 }}>
                     <ul className="menu-after">
@@ -57,7 +66,7 @@ const Navbar = () => {
                         <li style={navbarStyle.navMenuLiStyle}>Resumo Profissional</li>
                     </ul>
                 <div  >
-                    <Button variant="contained" style={{background: '#1429a9', marginRight: '10px'}}>Curriculo PDF</Button>
+                    <Button variant="contained" style={{background: 'royalblue', marginRight: '10px'}}>Curriculo PDF</Button>
                     <Button variant="contained" color="success">CONTATO</Button>
                 </div>
             </Grid>
