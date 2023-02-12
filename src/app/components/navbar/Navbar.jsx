@@ -1,79 +1,94 @@
-import { Button, Container } from "@mui/material"
-import AppBar from "@mui/material/AppBar"
-import Grid from "@mui/material/Grid"
+import { Button, Container } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Grid from '@mui/material/Grid';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
-import './Navbar.css'
+import './Navbar.css';
+import Link from 'next/link';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const navbarStyle = {
-    container: {
-        width: '100%',
-        height: '120px',
-        position: 'fixed',
-        top: '0',
-        zIndex: '99',
-    },
-    containerItemStyle: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: '46%',
-        background: 'black',
-        color: 'white',
-        fontWeight: 'bolder',
-        padding: '0px 155px 0px 145px',
-        fontSize: '20px',
-    },
-    containerItemStyle2:{
-        padding: '0px 155px 0px 175px',
-        height: '54%',
-        borderBottom: '0px',
-        background: 'white',
-        color: 'black',
-        background: '#ffffffaf',
-        backdropFilter: "blur(6px)",
+  container: {
+    width: '100%',
+    height: '90px',
+    position: 'fixed',
+    top: '0',
+    zIndex: '99',
+    color: 'black',
+    // background: '#ffffffaf',
+    backdropFilter: 'blur(6px)',
+    boxShadow: '1px 1px 9px 2px #0000003d'
+  },
 
-    },
-    navMenuLiStyle: {
-        margin: '0px 10px',
-        cursor: 'pointer'
-    }
-}
+  buttonStyle: {
+    width: '180px',
+    height: '45px',
+    marginRight: '10px',
+    borderRadius: '30px',
+    color: 'royalblue',
+    borderColor: 'royalblue',
+    fontWeight: '600',
+    borderWidth: '1px',
+    background: '#4169e121'
+  },
+  buttonStyle2: {
+    background: '#9acd3224',
+    color: 'yellowgreen',
+    borderColor: 'yellowgreen'
+  },
+  navMenuLiStyle: {
+    margin: '0px 10px',
+    cursor: 'pointer'
+  }
+};
 
 const Navbar = () => {
-    return <>
-    <Grid
-        container
-        style={navbarStyle.container}
-    >
-        <Grid container flexDirection='column' height='100%' s  >
-            <Grid item style={navbarStyle.containerItemStyle} >
-                <p style={{}}>HENRIQUE MAGNO</p>
-                <div style={{
-                    cursor: 'pointer',
-                    marginTop: '10px',
-                    display: 'flex',
-                     justifyContent: 'space-around',
-                     width: '120px',
-                    }} >
-                    <p style={{fontWeight: '200'}}>SETTINGS</p>
-                    <div className="setting-icon" > <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon> </div>
-                </div>
-           </Grid>
-            <Grid item style={{...navbarStyle.containerItemStyle, ...navbarStyle.containerItemStyle2 }}>
-                    <ul className="menu-after">
-                        <li style={navbarStyle.navMenuLiStyle}>Portfólio</li>
-                        <li style={navbarStyle.navMenuLiStyle}>Skills</li>
-                        <li style={navbarStyle.navMenuLiStyle}>Resumo Profissional</li>
-                    </ul>
-                <div  >
-                    <Button variant="contained" style={{background: 'royalblue', marginRight: '10px'}}>Curriculo PDF</Button>
-                    <Button variant="contained" color="success">CONTATO</Button>
-                </div>
-            </Grid>
-        </Grid>
-        
-    </Grid>
-    </>
-}
+  return (
+    <>
+      <Grid container justifyContent={'center'} style={navbarStyle.container}>
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          md={10}
+          xl={10}
+          display={'flex'}
+          justifyContent={'space-between'}
+          alignItems="center"
+          height="100%"
+        >
+          {/* TODO: ADICIONAR COR NO MENU AO ROLAR O SCROLL E REDUZIR O TAMANHO */}
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div>
+              <KeyboardArrowRightIcon
+                fontSize="large"
+                style={{ color: 'royalblue' }}
+              />
+            </div>
+            <ul className="menu-after">
+              <li style={navbarStyle.navMenuLiStyle}>
+                <Link href="/portfolio-app">Portfólio</Link>
+              </li>
+              <li style={navbarStyle.navMenuLiStyle}>
+                <Link href="/skills">Skills</Link>
+              </li>
+              <li style={navbarStyle.navMenuLiStyle}>
+                <Link href="/about-me">Sobre mim</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <Button variant="outlined" style={{...navbarStyle.buttonStyle}}>
+              Curriculo PDF
+            </Button>
+            <Button variant="outlined" style={{...navbarStyle.buttonStyle, ...navbarStyle.buttonStyle2  }}>
+              contato
+            </Button>
 
-export default Navbar
+          </div>
+        </Grid>
+      </Grid>
+    </>
+  );
+};
+
+export default Navbar;

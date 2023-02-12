@@ -34,16 +34,13 @@ export default function Home() {
   return (
     <>
     <Navbar></Navbar>
-    <main style={{
-      paddingTop: '130px',
-    }}>
-      Hello World
+    <main>
       <div style={css.scene}>
         <Canvas
           shadows={true}
           style={css.canvas}
           camera={{
-            position: [-6, 7, 7],
+            position: [0, 50, 0],
           }}
         > 
             <ambientLight color={"royalblue"} intensity={0.3} ></ambientLight>
@@ -63,4 +60,3 @@ export default function Home() {
   </>
   )
 }
-

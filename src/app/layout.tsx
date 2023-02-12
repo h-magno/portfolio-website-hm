@@ -1,28 +1,23 @@
-"use client"
-import './globals.css'
+'use client';
+import './globals.css';
 
 import { Anek_Telugu } from '@next/font/google';
 
 const anekTelugu = Anek_Telugu({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800']
-})
+});
 
 export default function RootLayout({
-  children,
+  children
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html className={anekTelugu.className} lang="en">
+      <head />
 
-      <head/>
-
-        <body 
-          >{children}
-        </body>
-
-
+      <body>{children}</body>
     </html>
-  )
+  );
 }

@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 
 function LightBulb(props) {
   return (
-    <mesh {...props} >
+    <mesh {...props}>
       <pointLight castShadow />
       <sphereBufferGeometry args={[1.2, 15, 15]} />
-      <meshPhongMaterial emissive={"royalblue"}  />
+      <meshPhongMaterial emissive={'royalblue'} />
     </mesh>
-  );
+  )
 }
 
-export default LightBulb;
+export default LightBulb

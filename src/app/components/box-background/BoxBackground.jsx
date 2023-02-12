@@ -1,14 +1,14 @@
-import React from "react";
-import { useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three";
+import React from 'react'
+import { useLoader } from '@react-three/fiber'
+import { TextureLoader } from 'three'
 
 function BoxBg(props) {
-  const texture = useLoader(TextureLoader, "meubg.jpg");
+  const texture = useLoader(TextureLoader, 'hell.jpg')
   return (
     <mesh {...props} recieveShadow={true} castShadow={true}>
       <boxBufferGeometry />
-      <meshPhysicalMaterial map={texture} color={"white"} />
+      <meshPhysicalMaterial map={texture} color={'white'} />
     </mesh>
-  );
+  )
 }
-export default BoxBg;
+export default BoxBg
