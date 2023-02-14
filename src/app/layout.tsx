@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className={anekTelugu.className} lang="en">
+    <html  lang="en">
       <head />
 
       <body>{children}</body>

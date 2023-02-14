@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100;200;300;400;500;600;700;800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 
 @font-face {
-  font-family: 'Anek Telugu', sans-serif;
-  src: url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100;200;300;400;500;600;700;800&display=swap');
+  font-family: 'Noto Sans Mono', monospace;
+
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 }
 
 *{
@@ -11,12 +15,9 @@
   text-decoration: none;
 }
 
-*:visited{
-  color: royalblue;
-}
 
 body {
-  font-family: 'Anek Telugu';
+  font-family: 'Noto Sans Mono';
   margin: 0;
   background-color: rgb(12, 12, 12);
   color: rgb(255, 255, 255);

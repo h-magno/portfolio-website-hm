@@ -1,7 +1,8 @@
-'use client'
-import { CSSProperties } from 'react'
-import Grid from '@mui/material/Grid'
-import Navbar from '../components/navbar/Navbar'
+'use client';
+import { CSSProperties } from 'react';
+import Grid from '@mui/material/Grid';
+import Navbar from '../components/navbar/Navbar';
+import './font-import.css';
 
 const homeStyle = {
   headerHome: {
@@ -12,33 +13,34 @@ const homeStyle = {
     justifyContent: 'center',
     backdropFilter: 'blur(10px)',
     position: 'relative',
-    marginBottom: '50px',
+    marginBottom: '50px'
   },
   headlineBemVindo: {
     fontWeight: '200',
-    fontSize: '30px',
-    letterSpacing: '2px',
+    fontSize: '30px'
   },
   headlinePortfolio: {
+    fontFamily: 'Anek Telugu',
+    
     fontWeight: '800',
-    fontSize: '125px',
-    letterSpacing: '2px',
+    fontSize: '125px'
   },
   headlineCriadoPor: {
-    fontWeight: '200',
+    fontWeight: '300',
     fontSize: '16px',
-    letterSpacing: '2px',
+    // color: 'yellowgreen'
   },
   headlineHM: {
+    fontFamily: 'Anek Telugu',
     fontWeight: '800',
     fontSize: '30px',
-    letterSpacing: '2px',
-    marginLeft: '10px',
+    letterSpacing: '1px',
+    marginLeft: '10px'
   },
   headTxtDiv: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: '-35px',
+    marginBottom: '-35px'
   },
   projectDiv: {
     width: '400px',
@@ -46,11 +48,11 @@ const homeStyle = {
     background: 'white',
     margin: '5px',
     flexWrap: 'wrap',
-    cursor: 'pointer',
-  },
-}
+    cursor: 'pointer'
+  }
+};
 
-const fakeProjects = [1, 2, 3, 4, 5, 6]
+const fakeProjects = [1, 2, 3, 4, 5, 6];
 
 const Dashboard = () => {
   return (
@@ -59,7 +61,8 @@ const Dashboard = () => {
       <header style={homeStyle.headerHome as CSSProperties}>
         <div style={homeStyle.headTxtDiv as CSSProperties}>
           <span style={homeStyle.headlineBemVindo}>
-            Hello, welcome to my web
+            <span style={{ color: 'yellowgreen' }}>Hello,</span> welcome to my
+            web
           </span>
           <span style={homeStyle.headlinePortfolio}>PORTFOLIO</span>
         </div>
@@ -72,7 +75,7 @@ const Dashboard = () => {
         style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'center'
         }}
       >
         <Grid
@@ -93,7 +96,7 @@ const Dashboard = () => {
         </Grid>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
