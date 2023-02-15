@@ -4,12 +4,12 @@ import { TextureLoader } from 'three';
 
 function Floor(props) {
 
-  // const texture = useLoader(TextureLoader, 'meubg.jpg')
+  const texture = useLoader(TextureLoader, 'bg1.png')
 
   return (
     <mesh {...props} recieveShadow={true}>
-      <boxBufferGeometry args={[20, 1, 10]} />
-      <meshPhysicalMaterial color="white" />
+      <boxBufferGeometry args={[0.6, 0.6, 0.01]} />
+      <meshPhysicalMaterial  color ="grey" />
     </mesh>
   );
 }

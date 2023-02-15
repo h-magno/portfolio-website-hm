@@ -31,8 +31,7 @@ const navbarStyle = {
     background: '#4169e114',
     '&:hover': {
       borderColor: 'royalblue',
-      transform: 'scale(0.995)',
-      transitionDuration: '0.3s'
+      transform: 'scale(0.995)'
     }
   },
   buttonStyle2: {
@@ -43,8 +42,7 @@ const navbarStyle = {
     '&:hover': {
       background: '#9acd3214',
       borderColor: 'yellowgreen',
-      transform: 'scale(0.995)',
-      transitionDuration: '0.3s'
+      transform: 'scale(0.995)'
     }
   },
   navMenuLiStyle: {
@@ -78,13 +76,22 @@ const Navbar = () => {
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <ul className="menu-after">
               <li style={navbarStyle.navMenuLiStyle}>
-                <Link href="/portfolio-app"><span style={navbarStyle.dotAndParentesis}>.</span>portfólio<span style={navbarStyle.dotAndParentesis}>()</span></Link>
+                <Link href="/portfolio-app">
+                  <span style={navbarStyle.dotAndParentesis}>.</span>Portfolio
+                  <span style={navbarStyle.dotAndParentesis}>()</span>
+                </Link>
               </li>
               <li style={navbarStyle.navMenuLiStyle}>
-                <Link href="/skills"><span style={navbarStyle.dotAndParentesis}>.</span>Skills<span style={navbarStyle.dotAndParentesis}>()</span></Link>
+                <Link href="/skills">
+                  <span style={navbarStyle.dotAndParentesis}>.</span>Skills
+                  <span style={navbarStyle.dotAndParentesis}>()</span>
+                </Link>
               </li>
               <li style={navbarStyle.navMenuLiStyle}>
-                <Link href="/about-me"><span style={navbarStyle.dotAndParentesis}>.</span>SobreMim<span style={navbarStyle.dotAndParentesis}>()</span></Link>
+                <Link href="/about-me">
+                  <span style={navbarStyle.dotAndParentesis}>.</span>AboutMe
+                  <span style={navbarStyle.dotAndParentesis}>()</span>
+                </Link>
               </li>
             </ul>
           </div>
