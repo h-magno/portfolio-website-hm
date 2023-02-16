@@ -13,7 +13,7 @@ function Sphere(props: any) {
 
   return (
     <mesh {...props} recieveShadow={true} castShadow={true} ref={boxRef}>
-      <sphereGeometry args={[3, 20, 20]} />
+      <sphereGeometry args={[0.1, 20, 20]} />
       <meshPhysicalMaterial
         wireframeLinewidth={4}
         map={texture}

@@ -1,9 +1,8 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, Suspense } from 'react';
+import { useEffect, Suspense, useRef, useState } from 'react';
 
-import ReactDOM from 'react-dom';
-import { Canvas, createRoot, extend } from '@react-three/fiber';
+import { Canvas, extend } from '@react-three/fiber';
 import Floor from './components/react-three-fiber/floor/Floor';
 import Sphere from './components/react-three-fiber/sphere/Sphere';
 import Sphere2 from './components/react-three-fiber/sphere2/Sphere2';
@@ -13,6 +12,8 @@ import Draggable from '../app/components/react-three-fiber/draggable/Draggable';
 import * as THREE from 'three';
 import Navbar from './components/navbar/Navbar';
 import { Reflector } from '@react-three/drei';
+import MyCameraRef from './components/react-three-fiber/myCameraRef/MyCameraRef';
+import ReflectorComp from './components/reflector/ReflectorComp';
 
 extend(THREE);
 
@@ -20,50 +21,63 @@ export default function Home() {
   return (
     <>
       <Navbar></Navbar>
-
-      <div style={{ height: '100vh' }}>
-        <Canvas
-          id="bg"
-          camera={{
-            fov: 20.,
-            position: [8,5.8,8]
-          }}
-        >
-          {/* <LightBulb position={[0, 4, 0]} /> */}
-          <ambientLight color={'white'} intensity={0.5} />
-          <pointLight color="blue" position={[5, 5.4, 6]} intensity={5} />
-          {/* <pointLight color="royalblue" position={[0, 0, 15]} intensity={5} /> */}
-          <axesHelper args={[10]} />
-          {/* <Suspense fallback={null}>
-            <Sphere position={[10, -2, -5]} rotation-x={10} rotation-y={0.42} rotation-z={0.8} />
-          </Suspense> */}
-          {/* <Suspense fallback={null}>
-            <Sphere position={[0, 0, 0]} rotation-x={10} rotation-y={0.42} rotation-z={0.8} />
-          </Suspense> */}
-          <Suspense fallback={null}>
-            <Sphere2 position={[7, 4.4, 6]} rotation-x={1} rotation-y={0} rotation-z={0} />
-          </Suspense>
-   
-          <Reflector
-            position={[7, 4.4, 6]}
-            rotation-x={15} rotation-y={3} rotation-z={0}
-            blur={[512, 512]} // Blur ground reflections (width, heigt), 0 skips blur
-            mixBlur={0.75} // How much blur mixes with surface roughness
-            mixStrength={0.25} // Strength of the reflections
-            resolution={2024} // Off-buffer resolution, lower=faster, higher=better quality
-            args={[7, 4]} // PlaneBufferGeometry arguments
-            mirror={1} // Mirror environment, 0 = texture colors, 1 = pick up env colors
-            minDepthThreshold={0.25}
-            maxDepthThreshold={1}
-            depthScale={50}
-          ></Reflector>
-          {/* <Floor position={[7, 4.4, 6]} rotation-x={15} rotation-y={0} rotation-z={0} /> */}
-          <Draggable />
-          <OrbitControls />
-        </Canvas>
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: '2000px',
+          display: 'flex',
+          background: 'trasnparent',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: '98'
+        }}
+      >
+        <h1>Hola que tal</h1>
+      </div>
+      <div className="home-bg" style={{ position: 'absolute', top: 0, zIndex: '90' }}>
+        <div style={{ height: '100vh', width: '100vw' }}>
+          <Canvas
+            id="bg"
+            camera={{
+              fov: 20,
+              position:
+                document.documentElement.clientWidth <= 912
+                  ? [7.755644336365776, 5.1526787091636335, 6.999997432913748]
+                  : document.documentElement.clientWidth <= 1090
+                  ? [8, 5.8, 8.2]
+                  : [7.506911085205941, 5.1183933233551, 7.074502693421444]
+            }}
+          >
+            <MyCameraRef />
+            {/* <LightBulb position={[0, 4, 0]} /> */}
+            <ambientLight color={'white'} intensity={0.5} />
+            <pointLight color="blue" position={[5, 5.4, 6]} intensity={5} />
+            {/* <pointLight color="yellowgreen" position={[0, 0, 15]} intensity={5} /> */}
+            <axesHelper args={[10]} />
+            {/* <Suspense fallback={null}>
+                <Sphere position={[10, -2, -5]} rotation-x={10} rotation-y={0.42} rotation-z={0.8} />
+              </Suspense> */}
+            {/* <Suspense fallback={null}>
+                <Sphere position={[0, 0, 0]} rotation-x={10} rotation-y={0.42} rotation-z={0.8} />
+              </Suspense> */}
+            <Suspense fallback={null}>
+              <Sphere2 position={[7, 4.4, 6]} rotation-x={1} />
+            </Suspense>
+            <ReflectorComp
+              position={[7, 4.4, 6]}
+              rotation-x={15}
+              rotation-y={3}
+            ></ReflectorComp>
+            {/* <Floor position={[7, 4.4, 6]} rotation-x={15} rotation-y={0} rotation-z={0} /> */}
+            <Draggable />
+            <OrbitControls />
+          </Canvas>
+        </div>
       </div>
     </>
   );
 }
-// {console.log(document.getElementById('bg'))}
-// ReactDOM.render(<Home />, document.querySelector('#root') )

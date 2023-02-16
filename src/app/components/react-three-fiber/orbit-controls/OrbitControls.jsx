@@ -6,9 +6,13 @@ import { Box } from '@mui/system';
 extend({ OrbitControls });
 
 function Controls(props) {
-  const { camera, gl } = useThree();
+  const { camera, gl} = useThree();
+  
+
+ 
   return (
     <>
+    {console.log(camera.position)}
     <orbitControls attach={'orbitControls'} args={[camera, gl.domElement]} />
     </>
   );

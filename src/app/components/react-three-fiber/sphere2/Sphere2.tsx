@@ -6,18 +6,16 @@ function Sphere(props: any) {
   const texture = useLoader(TextureLoader, 'terra.jpg');
 
   useFrame(() => {
-    // boxRef.current.rotation.x += 0.01
     boxRef.current.rotation.y += 0.00315
-    // boxRef.current.rotation.z += 0.005
   });
 
   return (
     <mesh {...props} recieveShadow={true} castShadow={true} ref={boxRef}>
-      <sphereGeometry args={[0.3, 15,15]} />
+      <sphereGeometry args={[0.25, 12,12]} />
       <meshPhysicalMaterial
         wireframe
         // map={texture}
-        color={'white'}
+        color={'orange'}
       />
     </mesh>
   );
