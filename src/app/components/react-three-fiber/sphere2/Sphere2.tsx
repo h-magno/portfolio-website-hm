@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';import { useFrame, useLoader } from '@react-three/fiber';
 import { Mesh, TextureLoader } from 'three';
 
-function Sphere(props: any) {
+function Sphere2(props: any) {
   const boxRef = useRef<Mesh>(null!);
   const texture = useLoader(TextureLoader, 'terra.jpg');
 
@@ -15,9 +15,9 @@ function Sphere(props: any) {
       <meshPhysicalMaterial
         wireframe
         // map={texture}
-        color={'orange'}
+        color={'grey'}
       />
     </mesh>
   );
 }
-export default Sphere;
+export default Sphere2;

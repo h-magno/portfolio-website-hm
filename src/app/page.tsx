@@ -14,6 +14,7 @@ import Navbar from './components/navbar/Navbar';
 import { Reflector } from '@react-three/drei';
 import MyCameraRef from './components/react-three-fiber/myCameraRef/MyCameraRef';
 import ReflectorComp from './components/reflector/ReflectorComp';
+import SphereTres from './components/react-three-fiber/sphere3/Sphere3';
 
 extend(THREE);
 
@@ -21,7 +22,7 @@ export default function Home() {
   return (
     <>
       <Navbar></Navbar>
-      <div
+      {/* <div
         style={{
           position: 'absolute',
           top: 0,
@@ -36,9 +37,14 @@ export default function Home() {
           zIndex: '98'
         }}
       >
-        <h1>Hola que tal</h1>
-      </div>
-      <div className="home-bg" style={{ position: 'absolute', top: 0, zIndex: '90' }}>
+        <h1 className="text-2xl font-bold underline text-green-700">
+          Hola quaa tal
+        </h1>
+      </div> */}
+      <div
+        className="home-bg"
+        style={{ position: 'absolute', top: 0, zIndex: '90' }}
+      >
         <div style={{ height: '100vh', width: '100vw' }}>
           <Canvas
             id="bg"
@@ -53,26 +59,22 @@ export default function Home() {
             }}
           >
             <MyCameraRef />
-            {/* <LightBulb position={[0, 4, 0]} /> */}
             <ambientLight color={'white'} intensity={0.5} />
             <pointLight color="blue" position={[5, 5.4, 6]} intensity={5} />
-            {/* <pointLight color="yellowgreen" position={[0, 0, 15]} intensity={5} /> */}
             <axesHelper args={[10]} />
-            {/* <Suspense fallback={null}>
-                <Sphere position={[10, -2, -5]} rotation-x={10} rotation-y={0.42} rotation-z={0.8} />
-              </Suspense> */}
-            {/* <Suspense fallback={null}>
-                <Sphere position={[0, 0, 0]} rotation-x={10} rotation-y={0.42} rotation-z={0.8} />
-              </Suspense> */}
-            <Suspense fallback={null}>
-              <Sphere2 position={[7, 4.4, 6]} rotation-x={1} />
-            </Suspense>
+
+
+              <Suspense fallback={null} >
+                <Sphere2 position={[7, 4.4, 6]} rotation-x={1} />
+              </Suspense>
+       
+
+    
             <ReflectorComp
               position={[7, 4.4, 6]}
               rotation-x={15}
               rotation-y={3}
             ></ReflectorComp>
-            {/* <Floor position={[7, 4.4, 6]} rotation-x={15} rotation-y={0} rotation-z={0} /> */}
             <Draggable />
             <OrbitControls />
           </Canvas>
@@ -80,4 +82,23 @@ export default function Home() {
       </div>
     </>
   );
+}
+{
+  /* <Floor position={[7, 4.4, 6]} rotation-x={15} rotation-y={0} rotation-z={0} /> */
+}
+
+{
+  /* <Suspense fallback={null}>
+                <Sphere position={[10, -2, -5]} rotation-x={10} rotation-y={0.42} rotation-z={0.8} />
+              </Suspense> */
+}
+{
+  /* <Suspense fallback={null}>
+                <Sphere position={[0, 0, 0]} rotation-x={10} rotation-y={0.42} rotation-z={0.8} />
+              </Suspense> */
+}
+{
+  /* <Suspense fallback={null}>
+              <Sphere2 position={[7, 4.4, 6]} rotation-x={1} />
+            </Suspense> */
 }

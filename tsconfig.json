@@ -31,5 +31,13 @@
     ".next/types/**/*.ts",
     "src/app/components/react-three-fiber/sphere/Sphere.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "css": "css"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }
