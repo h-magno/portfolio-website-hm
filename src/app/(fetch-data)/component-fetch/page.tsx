@@ -12,7 +12,7 @@ const testingComponentFetch = async () => {
 
       {/* @ts-expect-error Async Server Component */}
       <ComponentFetch1 />
-
+    {/* Suspense necessário oara carregar uma animação de carregamento pontual */}
       <Suspense fallback={<div className="lds-roller">
             <div></div>
             <div></div>

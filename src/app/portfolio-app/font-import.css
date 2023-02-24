@@ -12,4 +12,35 @@
   text-decoration: none;
 }
 
+.project-main {
+  animation-name: fakeLoading;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  background-color: rgb(255, 255, 255);
+}
+
+.project-main:hover {
+  transform: scale(1.01);
+  transition-duration: 1s;
+}
+
+@keyframes fakeLoading {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+}
+
+
+
+
+
 

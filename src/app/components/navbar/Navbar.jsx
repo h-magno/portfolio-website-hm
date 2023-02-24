@@ -95,16 +95,13 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div>
-            <Button variant="outlined" sx={{ ...navbarStyle.buttonStyle }}>
+          <div className="">
+            <button className="bg-blue-600 bg-opacity-5 text-blue-600 w-44 h-12 rounded-2xl border border-blue-600  font-bold mx-2 hover:bg-opacity-10 relative uppercase hoverScale">
               Curriculo PDF
-            </Button>
-            <Button
-              variant="outlined"
-              sx={{ ...navbarStyle.buttonStyle, ...navbarStyle.buttonStyle2 }}
-            >
-              contato
-            </Button>
+            </button>
+            <button className=" bg-lime-400  bg-opacity-5 text-lime-400 w-44 h-12 rounded-2xl border border-lime-400  font-bold mx-2 hover:bg-opacity-10 relative uppercase hoverScale">
+              Contato
+            </button>
           </div>
         </Grid>
       </Grid>

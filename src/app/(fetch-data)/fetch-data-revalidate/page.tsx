@@ -1,8 +1,12 @@
-// ESTE TIPO DE FETCH COBRE APENAS REQUISIÇÕES ESTÁTICAS REALIZADAS NO BUILD DA APLICAÇÃO. BOM PARA HOME-PAGE.// GSP
+// REVALIDATE FETCH (REALIZANDO REQUISIÇÕES A CADA 'X' PERIODO DE TEMPO)
+
 const fetchDataStatic = async () => {
   const response = await fetch(
     'https://api.github.com/users/henrique-magno-dev',
     {
+      next: {
+        revalidate: 30
+      },
       headers: {
         Authorization: `Bearer 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`
       }

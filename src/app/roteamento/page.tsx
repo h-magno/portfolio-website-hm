@@ -49,7 +49,7 @@ const routeTypes = () => {
         width: '300px',
         background: 'red',
         Button: {
-          margin: '5px 0px'
+          margin: '5px 0px' 
         }
       }}
     >
