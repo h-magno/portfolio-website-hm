@@ -77,7 +77,7 @@ const Navbar = () => {
             <ul className="menu-after">
               <li style={navbarStyle.navMenuLiStyle}>
                 <Link href="/portfolio-app">
-                  <span style={navbarStyle.dotAndParentesis}>.</span>Portfolio
+                  <span style={navbarStyle.dotAndParentesis}>.</span>Portfólio
                   <span style={navbarStyle.dotAndParentesis}>()</span>
                 </Link>
               </li>
@@ -89,7 +89,7 @@ const Navbar = () => {
               </li>
               <li style={navbarStyle.navMenuLiStyle}>
                 <Link href="/about-me">
-                  <span style={navbarStyle.dotAndParentesis}>.</span>AboutMe
+                  <span style={navbarStyle.dotAndParentesis}>.</span>SobreMim
                   <span style={navbarStyle.dotAndParentesis}>()</span>
                 </Link>
               </li>

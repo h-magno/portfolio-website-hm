@@ -5,8 +5,7 @@
   src: url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100;200;300;400;500;600;700;800&display=swap');
 }
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -20,6 +19,7 @@
 }
 
 .project-main:hover {
+  background-color: rgb(44, 44, 44);
   transform: scale(1.01);
   transition-duration: 1s;
 }
@@ -27,20 +27,25 @@
 @keyframes fakeLoading {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
 }
 
 
+.projectContainer {
 
+}
 
-
+.projectContainer:hover {
+ transform: scale(1.05);
+ transition-duration: 1s;
+}
 
