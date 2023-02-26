@@ -40,12 +40,9 @@
 }
 
 
-.projectContainer {
-
+.projectBox:hover {
+transform: scale(1.03) !important;
 }
 
-.projectContainer:hover {
- transform: scale(1.05);
- transition-duration: 1s;
-}
+
 

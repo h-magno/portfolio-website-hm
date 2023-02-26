@@ -34,51 +34,56 @@ const Dashboard = () => {
   const [isShownOne, setIsShownOne] = useState(false);
   const [isShownTwo, setIsShownTwo] = useState(false);
   const [isShownThree, setIsShownThree] = useState(false);
+  const [projectHover, setProjectHover] = useState(false);
   const [data, setData] = useState<Array<Item>>([]);
 
   useEffect(() => {
     fetch('https://api.github.com/users/henrique-magno-dev/repos', {
       headers: {
-        Authorization: `Bearer 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`
+        Authorization: `Bearer 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`
       }
     })
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
 
+  let counter = -1;
   const stringfyData = data.map((e, i) => {
     if (data[i].stargazers_count != '0') {
-      let counter = i;
+      counter++;
       return (
         <Link
           id={`projeto-${counter}`}
           onMouseOver={() => {
             const projetos = document.getElementById('projectSection')?.childNodes;
-              projetos?.forEach((e, i) => {
-              let projectGroup = document.getElementById(`projeto-${counter}`);
+            
+            projetos?.forEach((e, i) => {
+              let projectGroup = document.getElementById(`projeto-${i}`);
               if (projectGroup != null) {
-                projectGroup.style.transform = 'scale(0.98)';
-                projectGroup.style.transitionDuration = '0.5s';
+                projectGroup.style.transform = 'scale(0.95)';
+                projectGroup.style.transitionDuration = '0.2s';
               }
-              let projectUnity = document.getElementById(`projeto-${counter}`);
-              if (projectUnity != null) {
-                projectUnity.style.transform = 'scale(1.02)';
-                projectUnity.style.transitionDuration = '0.5s';
-              }
+
             });
           }}
-          onMouseOut ={() => {
+
+          onMouseOut={() => {{
             const projetos = document.getElementById('projectSection')?.childNodes;
+            
             projetos?.forEach((e, i) => {
               let projectGroup = document.getElementById(`projeto-${i}`);
               if (projectGroup != null) {
                 projectGroup.style.transform = 'scale(1)';
+                projectGroup.style.transitionDuration = '0.5s';
               }
+
             });
+          }
 
           }}
+
           href={`${data[i].html_url}`}
-          className="projeto w-full h-96 rounded-3xl text-white  z-10 cursor-pointer p-10 relative bg-gradient-to-t from-blue-900 to-blue-600"
+          className="projectBox w-full h-96 rounded-3xl text-white  z-10 cursor-pointer p-10 relative bg-gradient-to-t from-blue-900 to-blue-600"
         >
           <div className="block  h-1/3 text-center">
             <h1>{data[i].name}</h1>
