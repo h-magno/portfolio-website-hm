@@ -6,7 +6,6 @@ import { Canvas } from '@react-three/fiber';
 import MyCameraRef from '../components/react-three-fiber/myCameraRef/MyCameraRef';
 import Sphere2 from '../components/react-three-fiber/sphere2/Sphere2';
 import ReflectorComp from '../components/reflector/ReflectorComp';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 const homeStyle = {
@@ -20,8 +19,6 @@ const homeStyle = {
   }
 };
 
-const fakeProjects = [1, 2, 3, 4, 5, 6];
-
 const Dashboard = () => {
   interface Item {
     name: string;
@@ -30,17 +27,49 @@ const Dashboard = () => {
     html_url: string;
     homepage: string;
   }
+  setTimeout(() => {
+    setIsShownOne(true);
+  }, 450);
+  setTimeout(() => {
+    setIsShownTwo(true);
+  }, 750);
+
+  setTimeout(() => {
+    setIsShownThree(true);
+  }, 950);
+
+  function mainMouseOver() {
+    if (mainProjects) {
+      mainProjects.forEach((e, i) => {
+        let projectGroup = document.getElementById(`mainProject-${i}`);
+        if (projectGroup != null) {
+          projectGroup.style.transform = 'scale(0.95)';
+          projectGroup.style.transitionDuration = '0.2s';
+        }
+      });
+    }
+  }
+  function mainMouseOut() {
+    if (mainProjects) {
+      mainProjects.forEach((e, i) => {
+        let projectGroup = document.getElementById(`mainProject-${i}`);
+        if (projectGroup != null) {
+          projectGroup.style.transform = 'scale(1)';
+          projectGroup.style.transitionDuration = '0.2s';
+        }
+      });
+    }
+  }
 
   const [isShownOne, setIsShownOne] = useState(false);
   const [isShownTwo, setIsShownTwo] = useState(false);
   const [isShownThree, setIsShownThree] = useState(false);
-  const [projectHover, setProjectHover] = useState(false);
   const [data, setData] = useState<Array<Item>>([]);
 
   useEffect(() => {
     fetch('https://api.github.com/users/henrique-magno-dev/repos', {
       headers: {
-        Authorization: `Bearer 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`
+        Authorization: `Bearer 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`
       }
     })
       .then((res) => res.json())
@@ -48,6 +77,11 @@ const Dashboard = () => {
   }, []);
 
   let counter = -1;
+  const mainProjects =
+    document.getElementById('mainProjectSection')?.childNodes;
+  const lastProjects =
+    document.getElementById('lastProjectSection')?.childNodes;
+
   const stringfyData = data.map((e, i) => {
     if (data[i].stargazers_count != '0') {
       counter++;
@@ -55,33 +89,25 @@ const Dashboard = () => {
         <Link
           id={`projeto-${counter}`}
           onMouseOver={() => {
-            const projetos = document.getElementById('projectSection')?.childNodes;
-            
-            projetos?.forEach((e, i) => {
+            lastProjects?.forEach((e, i) => {
               let projectGroup = document.getElementById(`projeto-${i}`);
               if (projectGroup != null) {
                 projectGroup.style.transform = 'scale(0.95)';
                 projectGroup.style.transitionDuration = '0.2s';
               }
-
             });
           }}
-
-          onMouseOut={() => {{
-            const projetos = document.getElementById('projectSection')?.childNodes;
-            
-            projetos?.forEach((e, i) => {
-              let projectGroup = document.getElementById(`projeto-${i}`);
-              if (projectGroup != null) {
-                projectGroup.style.transform = 'scale(1)';
-                projectGroup.style.transitionDuration = '0.5s';
-              }
-
-            });
-          }
-
+          onMouseOut={() => {
+            {
+              lastProjects?.forEach((e, i) => {
+                let projectGroup = document.getElementById(`projeto-${i}`);
+                if (projectGroup != null) {
+                  projectGroup.style.transform = 'scale(1)';
+                  projectGroup.style.transitionDuration = '0.5s';
+                }
+              });
+            }
           }}
-
           href={`${data[i].html_url}`}
           className="projectBox w-full h-96 rounded-3xl text-white  z-10 cursor-pointer p-10 relative bg-gradient-to-t from-blue-900 to-blue-600"
         >
@@ -92,13 +118,13 @@ const Dashboard = () => {
           <div className="h-1/3 flex text-white justify-center items-center">
             <Link
               href={`${data[i].html_url}`}
-              className="border mx-4 rounded-xl h-12 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
+              className="border flex items-center text-center mx-4 rounded-xl lg:h-14 md:h-16 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
             >
               Github Repo
             </Link>
             <Link
               href={`${data[i].homepage}`}
-              className="border mx-4 rounded-xl h-12 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
+              className="border flex items-center text-center mx-4 rounded-xl lg:h-14 md:h-16 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
             >
               Deployed app
             </Link>
@@ -107,18 +133,6 @@ const Dashboard = () => {
       );
     }
   });
-
-  setTimeout(() => {
-    setIsShownOne(true);
-  }, 450);
-
-  setTimeout(() => {
-    setIsShownTwo(true);
-  }, 750);
-
-  setTimeout(() => {
-    setIsShownThree(true);
-  }, 950);
 
   return (
     <>
@@ -154,19 +168,39 @@ const Dashboard = () => {
       <div className=" w-full h-16 z-10 flex justify-center items-center my-5">
         PROJETOS PRINCIPAIS
       </div>
-      <section className="container h-96 mx-auto grid lg:grid-cols-3 md:grid-cols-3 gap-4 sm:grid-cols-1">
+      <section
+        id="mainProjectSection"
+        className="container  mx-auto grid lg:grid-cols-3 md:grid-cols-3 gap-4 sm:grid-cols-1"
+      >
         {isShownOne ? (
-          <div className=" project-main w-full h-96 rounded-3xl z-10 cursor-pointer"></div>
+          <div
+            id="mainProject-0"
+            onMouseOver={mainMouseOver}
+            onMouseOut={mainMouseOut}
+            className="mainProjects bg-white w-full h-96 rounded-3xl z-10 cursor-pointer "
+          ></div>
         ) : (
           ''
         )}
         {isShownTwo ? (
-          <div className=" project-main w-full h-96 rounded-3xl z-10 cursor-pointer"></div>
+          <div
+            id="mainProject-1"
+            onMouseOver={mainMouseOver}
+            onMouseOut={mainMouseOut}
+
+            className="mainProjects bg-white w-full h-96 rounded-3xl z-10 cursor-pointer "
+          ></div>
         ) : (
           ''
         )}
         {isShownThree ? (
-          <div className=" project-main w-full h-96 rounded-3xl z-10  cursor-pointer"></div>
+          <div
+            id="mainProject-2"
+            onMouseOver={mainMouseOver}
+            onMouseOut={mainMouseOut}
+
+            className="mainProjects bg-white w-full h-96 rounded-3xl z-10 cursor-pointer "
+          ></div>
         ) : (
           ''
         )}
@@ -177,13 +211,10 @@ const Dashboard = () => {
       </div>
 
       <section
-        id="projectSection"
+        id="lastProjectSection"
         className="container mx-auto grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1 "
       >
         {stringfyData}
-        {/* {data.map((projects, idx) => (
-          <div className=" w-full h-96 bg-yellow-300 z-10 cursor-pointer flex items-center justify-center"></div>
-        ))} */}
       </section>
 
       <div className=" w-full h-16 z-10 flex justify-center items-center my-5">
