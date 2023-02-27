@@ -30,7 +30,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/components/react-three-fiber/sphere/Sphere.tsx"
-  ],
+, "src/app/components/last-projects/LastProjects.tsx"  ],
   "exclude": ["node_modules"],
   "tailwindCSS.includeLanguages": {
     "html": "html",

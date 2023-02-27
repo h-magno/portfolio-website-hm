@@ -1,0 +1,31 @@
+
+#projectBoxId-1 {
+ animation-delay: 0.5s;
+}
+#projectBoxId-2 {
+ animation-delay: 1s;
+}
+
+.projectBoxClass {
+    animation-name: fakeLoading;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fakeLoading {
+    0% {
+      opacity: 100%;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transform-origin: 0% 0%;
+      transform-origin: 0% 0%;
+    }
+    100% {
+      opacity: 100%;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-origin: 0% 0%;
+      transform-origin: 0% 0%;
+    }
+  }

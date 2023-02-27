@@ -5,7 +5,7 @@ const deduplicateRequest = async () => {
   const response = await fetch(
     'https://api.github.com/users/henrique-magno-dev/repos', {
         headers: {
-            Authorization: `Bearer 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`}
+            Authorization: `Bearer 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`}
     }
   );
   const repo = await response.json();

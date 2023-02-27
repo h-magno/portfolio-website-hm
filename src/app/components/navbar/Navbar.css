@@ -24,3 +24,8 @@
     transition-duration: 0.1s;
 }
 
+.btn-navbar2:hover {
+    border-color: yellowgreen;
+    background-color: rgba(153, 205, 50, 0.105);
+}
+

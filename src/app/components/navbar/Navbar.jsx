@@ -1,4 +1,5 @@
-import { Button, Container } from '@mui/material';import AppBar from '@mui/material/AppBar';
+import { Button, Container } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Grid';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import './Navbar.css';
@@ -96,12 +97,18 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="">
-            <button className="bg-blue-600 bg-opacity-5 text-blue-600 w-44 h-12 rounded-2xl border border-blue-600  font-bold mx-2 hover:bg-opacity-10 relative uppercase hoverScale">
-              Curriculo PDF
-            </button>
-            <button className=" bg-lime-400  bg-opacity-5 text-lime-400 w-44 h-12 rounded-2xl border border-lime-400  font-bold mx-2 hover:bg-opacity-10 relative uppercase hoverScale">
-              Contato
-            </button>
+            <Button
+              className="bg-blue-600 bg-opacity-5 text-blue-600 w-44 h-12 rounded-2xl border border-blue-600  mx-2 hover:bg-opacity-10 font-mono text-base font-thin"
+              variant="outlined"
+            >
+              CURRÍCULO PDF
+            </Button>
+            <Button
+              className="bg-lime-400  bg-opacity-5 text-lime-400 w-44 h-12 rounded-2xl border border-lime-400 mx-2 hover:bg-opacity-10 font-mono text-base font-extralight btn-navbar2"
+              variant="outlined"
+            >
+              CONTATO
+            </Button>
           </div>
         </Grid>
       </Grid>

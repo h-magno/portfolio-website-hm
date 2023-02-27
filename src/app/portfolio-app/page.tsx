@@ -6,7 +6,9 @@ import { Canvas } from '@react-three/fiber';
 import MyCameraRef from '../components/react-three-fiber/myCameraRef/MyCameraRef';
 import Sphere2 from '../components/react-three-fiber/sphere2/Sphere2';
 import ReflectorComp from '../components/reflector/ReflectorComp';
-import Link from 'next/link';
+import Lastprojects from '../components/last-projects/LastProjects';
+import Tilt from 'react-parallax-tilt';
+import MainProjects from '../components/main-projects/MainProjects';
 
 const homeStyle = {
   headlinePortfolio: {
@@ -20,22 +22,15 @@ const homeStyle = {
 };
 
 const Dashboard = () => {
-  interface Item {
-    name: string;
-    stargazers_count: string;
-    description: string;
-    html_url: string;
-    homepage: string;
-  }
   setTimeout(() => {
-    setIsShownOne(true);
+    setIsShown1(true);
   }, 450);
   setTimeout(() => {
-    setIsShownTwo(true);
+    setIsShown2(true);
   }, 750);
 
   setTimeout(() => {
-    setIsShownThree(true);
+    setIsShown3(true);
   }, 950);
 
   function mainMouseOver() {
@@ -61,78 +56,12 @@ const Dashboard = () => {
     }
   }
 
-  const [isShownOne, setIsShownOne] = useState(false);
-  const [isShownTwo, setIsShownTwo] = useState(false);
-  const [isShownThree, setIsShownThree] = useState(false);
-  const [data, setData] = useState<Array<Item>>([]);
+  const [isShown1, setIsShown1] = useState(false);
+  const [isShown2, setIsShown2] = useState(false);
+  const [isShown3, setIsShown3] = useState(false);
 
-  useEffect(() => {
-    fetch('https://api.github.com/users/henrique-magno-dev/repos', {
-      headers: {
-        Authorization: `Bearer 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`
-      }
-    })
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-
-  let counter = -1;
   const mainProjects =
     document.getElementById('mainProjectSection')?.childNodes;
-  const lastProjects =
-    document.getElementById('lastProjectSection')?.childNodes;
-
-  const stringfyData = data.map((e, i) => {
-    if (data[i].stargazers_count != '0') {
-      counter++;
-      return (
-        <Link
-          id={`projeto-${counter}`}
-          onMouseOver={() => {
-            lastProjects?.forEach((e, i) => {
-              let projectGroup = document.getElementById(`projeto-${i}`);
-              if (projectGroup != null) {
-                projectGroup.style.transform = 'scale(0.95)';
-                projectGroup.style.transitionDuration = '0.2s';
-              }
-            });
-          }}
-          onMouseOut={() => {
-            {
-              lastProjects?.forEach((e, i) => {
-                let projectGroup = document.getElementById(`projeto-${i}`);
-                if (projectGroup != null) {
-                  projectGroup.style.transform = 'scale(1)';
-                  projectGroup.style.transitionDuration = '0.5s';
-                }
-              });
-            }
-          }}
-          href={`${data[i].html_url}`}
-          className="projectBox w-full h-96 rounded-3xl text-white  z-10 cursor-pointer p-10 relative bg-gradient-to-t from-blue-900 to-blue-600"
-        >
-          <div className="block  h-1/3 text-center">
-            <h1>{data[i].name}</h1>
-          </div>
-          <div className="block h-1/3 text-center">{data[i].description}</div>
-          <div className="h-1/3 flex text-white justify-center items-center">
-            <Link
-              href={`${data[i].html_url}`}
-              className="border flex items-center text-center mx-4 rounded-xl lg:h-14 md:h-16 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
-            >
-              Github Repo
-            </Link>
-            <Link
-              href={`${data[i].homepage}`}
-              className="border flex items-center text-center mx-4 rounded-xl lg:h-14 md:h-16 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
-            >
-              Deployed app
-            </Link>
-          </div>
-        </Link>
-      );
-    }
-  });
 
   return (
     <>
@@ -168,53 +97,55 @@ const Dashboard = () => {
       <div className=" w-full h-16 z-10 flex justify-center items-center my-5">
         PROJETOS PRINCIPAIS
       </div>
-      <section
-        id="mainProjectSection"
-        className="container  mx-auto grid lg:grid-cols-3 md:grid-cols-3 gap-4 sm:grid-cols-1"
-      >
-        {isShownOne ? (
-          <div
-            id="mainProject-0"
-            onMouseOver={mainMouseOver}
-            onMouseOut={mainMouseOut}
-            className="mainProjects bg-white w-full h-96 rounded-3xl z-10 cursor-pointer "
-          ></div>
+
+      {/* {isShown1 ? (
+          
+            <div
+              id="mainProject-0"
+              onMouseOver={mainMouseOver}
+              onMouseOut={mainMouseOut}
+              className="mainProjects bg-white bg-blue w-full h-96 rounded-3xl z-10 cursor-pointer "
+            ></div>
+          
         ) : (
           ''
         )}
-        {isShownTwo ? (
+        {isShown2 ? (
           <div
             id="mainProject-1"
             onMouseOver={mainMouseOver}
             onMouseOut={mainMouseOut}
-
             className="mainProjects bg-white w-full h-96 rounded-3xl z-10 cursor-pointer "
           ></div>
         ) : (
           ''
         )}
-        {isShownThree ? (
+        {isShown3 ? (
           <div
             id="mainProject-2"
             onMouseOver={mainMouseOver}
             onMouseOut={mainMouseOut}
-
             className="mainProjects bg-white w-full h-96 rounded-3xl z-10 cursor-pointer "
           ></div>
         ) : (
           ''
-        )}
+        )} */}
+
+      <section
+        id="mainProjectSection"
+        className="container mx-auto grid lg:grid-cols-3 md:grid-cols-3 gap-4 sm:grid-cols-1"
+      >
+        <MainProjects></MainProjects>
       </section>
 
       <div className=" w-full h-16 z-10 flex justify-center items-center my-5">
         ÚLTIMOS PROJETOS
       </div>
-
       <section
         id="lastProjectSection"
-        className="container mx-auto grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1 "
+        className="container mx-auto lg:px-40 sm:px-10 grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1 "
       >
-        {stringfyData}
+        <Lastprojects></Lastprojects>
       </section>
 
       <div className=" w-full h-16 z-10 flex justify-center items-center my-5">
