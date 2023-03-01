@@ -7,15 +7,14 @@ import MyCameraRef from '../components/react-three-fiber/myCameraRef/MyCameraRef
 import Sphere2 from '../components/react-three-fiber/sphere2/Sphere2';
 import ReflectorComp from '../components/reflector/ReflectorComp';
 import Lastprojects from '../components/last-projects/LastProjects';
-import Tilt from 'react-parallax-tilt';
 import MainProjects from '../components/main-projects/MainProjects';
 
 const homeStyle = {
-  headlinePortfolio: {
-    fontFamily: 'Anek Telugu',
-    fontSize: '125px',
-    marginTop: '10px'
-  },
+  // headlinePortfolio: {
+  //   fontFamily: 'Anek Telugu',
+  //   fontSize: '125px',
+  //   marginTop: '10px'
+  // },
   headlineHM: {
     fontFamily: 'Anek Telugu'
   }
@@ -31,12 +30,12 @@ const Dashboard = () => {
       >
         <header className="text-center h-5/6 flex flex-col justify-center relative mb-10 z-10 ">
           <div className="flex flex-col -mb-9">
-            <span className="font-extralight text-3xl">
+            <span className="font-extralight textoCapa">
               <span className="text-lime-400">Olá,</span> bem-vindo ao meu web
             </span>
             <span
-              className="font-extrabold"
-              style={homeStyle.headlinePortfolio}
+              className="tituloCapa font-extrabold"
+              // style={homeStyle.headlinePortfolio}
             >
               PORTFÓLIO
             </span>
@@ -44,7 +43,7 @@ const Dashboard = () => {
           <div className="w-full absolute bottom-10">
             <span className="font-light text-base">Criado por:</span>
             <span
-              className="font-extrabold text-3xl tracking-wide ml-3"
+              className="font-extrabold textoCapa2 tracking-wide ml-3"
               style={homeStyle.headlineHM}
             >
               HENRIQUE MAGNO
@@ -57,7 +56,7 @@ const Dashboard = () => {
       </div>
       <section
         id="mainProjectSection"
-        className="container paddingClamp mx-auto grid lg:grid-cols-3 md:grid-cols-3 gap-4 sm:grid-cols-1"
+        className="container paddingClamp mx-auto grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1"
       >
         <MainProjects></MainProjects>
       </section>

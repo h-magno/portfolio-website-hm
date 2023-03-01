@@ -6,6 +6,7 @@ import './Navbar.css';
 import Link from 'next/link';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
+
 const navbarStyle = {
   container: {
     width: '100%',
@@ -59,9 +60,10 @@ const navbarStyle = {
 };
 
 const Navbar = () => {
+    
   return (
     <>
-      <Grid container justifyContent={'center'} style={navbarStyle.container}>
+      <Grid container className='lg:flex md:flex sm:hidden' justifyContent={'center'} style={navbarStyle.container}>
         <Grid
           item
           xs={12}

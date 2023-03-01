@@ -1,4 +1,22 @@
 
+:root {
+  --step--2: clamp(0.61rem, calc(0.54rem + 0.33vw), 0.80rem);
+  --step--1: clamp(0.73rem, calc(0.64rem + 0.47vw), 1.00rem);
+  --step-0: clamp(0.88rem, calc(0.74rem + 0.65vw), 1.25rem);
+  --step-1: clamp(1.05rem, calc(0.87rem + 0.89vw), 1.56rem);
+  --step-2: clamp(1.26rem, calc(1.02rem + 1.21vw), 1.95rem);
+  --step-3: clamp(1.51rem, calc(1.19rem + 1.62vw), 2.44rem);
+  --step-4: clamp(1.81rem, calc(1.38rem + 2.15vw), 3.05rem);
+  --step-5: clamp(2.18rem, calc(1.61rem + 2.85vw), 3.82rem);
+}
+.tituloConteudo {
+  line-height: 35px;
+  font-size: var(--step-2);
+}
+.texto {
+  font-size: var(--step--3)!important;
+}
+
 #projectBoxId-1 {
  animation-delay: 0.5s;
 }

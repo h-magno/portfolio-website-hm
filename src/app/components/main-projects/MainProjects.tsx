@@ -9,7 +9,9 @@ const MainProjects = () => {
   useEffect(() => {
     fetch('https://api.github.com/users/henrique-magno-dev/repos', {
       headers: {
-        Authorization: `Bearer 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`
+        // Authorization: `Bearer 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`
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_GIT}`
+
       }
     })
       .then((res) => res.json())
@@ -78,18 +80,18 @@ const MainProjects = () => {
                   id={`projectBoxId-${counter}`}
                   className="projectBoxClass w-full h-96 rounded-3xl text-white  z-10 cursor-pointer p-10  bg-gradient-to-t from-lime-800 to-lime-500"
                 >
-                  <div className="block  h-1/4 text-center lg:mb-0 md:mb-10">
-                    <h1 className="font-bold text-3xl capitalize ">
+                  <div className="block tituloConteudo h-1/4 text-center mb-2 ">
+                    <h1 className="font-bold capitalize titulo">
                       {data[i].name.replace('-hm', '').replace('-', ' ')}
                     </h1>
                   </div>
-                  <div className="h-1/3  text-center flex items-center">
+                  <div className="h-1/3 texto text-center  flex items-center">
                     {data[i].description.substring(0, 100)}...
                   </div>
                   <div className="h-1/3 flex text-white justify-center items-center">
                   <Link
                       href={`${data[i].html_url}`}
-                      className="border w-48  flex items-center justify-center mx-4 lg:mt-0 md:mt-10 rounded-xl h-14 p-2 bg-gray-400 hover:bg-gray-500 duration-500 "
+                      className="border w-48  flex items-center justify-center mx-4 rounded-xl h-14 p-2 bg-gray-500 hover:bg-gray-400 duration-500 "
                       >
                       Ver Mais
                     </Link>

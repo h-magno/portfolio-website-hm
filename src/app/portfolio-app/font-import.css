@@ -5,6 +5,25 @@
   src: url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100;200;300;400;500;600;700;800&display=swap');
 }
 
+:root {
+ --tituloCapa: clamp(4.38rem, calc(3.18rem + 5.98vw), 7.81rem);
+ --textoCapa: clamp(1.25rem, calc(0.92rem + 1.63vw), 2.19rem);
+ --textoCapa2: clamp(0.87rem, calc(0.68rem + 0.93vw), 1.40rem);
+}
+
+.textoCapa {
+  font-size: var(--textoCapa);
+}
+.textoCapa2 {
+  font-size: var(--textoCapa2);
+}
+
+.tituloCapa {
+  font-family: 'Anek Telugu';
+  font-size: var(--tituloCapa) !important;
+  margin-top: '10px';
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -25,8 +44,6 @@
 
 .paddingClamp {
   padding-inline: max(0px, 2.5vw);
-  
-
 }
 
 @keyframes fakeLoading {
