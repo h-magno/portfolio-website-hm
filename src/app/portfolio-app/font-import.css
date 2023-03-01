@@ -23,15 +23,10 @@
   animation-fill-mode: forwards;
 }
 
-#mainProject-0 {
-  animation-delay: 0.5s;
+.paddingClamp {
+  padding-inline: max(0px, 2.5vw);
   
-}
-#mainProject-1 {
-  animation-delay: 0.7s;
-}
-#mainProject-2 {
-  animation-delay: 1s;
+
 }
 
 @keyframes fakeLoading {

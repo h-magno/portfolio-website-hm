@@ -22,47 +22,6 @@ const homeStyle = {
 };
 
 const Dashboard = () => {
-  setTimeout(() => {
-    setIsShown1(true);
-  }, 450);
-  setTimeout(() => {
-    setIsShown2(true);
-  }, 750);
-
-  setTimeout(() => {
-    setIsShown3(true);
-  }, 950);
-
-  function mainMouseOver() {
-    if (mainProjects) {
-      mainProjects.forEach((e, i) => {
-        let projectGroup = document.getElementById(`mainProject-${i}`);
-        if (projectGroup != null) {
-          projectGroup.style.transform = 'scale(0.95)';
-          projectGroup.style.transitionDuration = '0.2s';
-        }
-      });
-    }
-  }
-  function mainMouseOut() {
-    if (mainProjects) {
-      mainProjects.forEach((e, i) => {
-        let projectGroup = document.getElementById(`mainProject-${i}`);
-        if (projectGroup != null) {
-          projectGroup.style.transform = 'scale(1)';
-          projectGroup.style.transitionDuration = '0.2s';
-        }
-      });
-    }
-  }
-
-  const [isShown1, setIsShown1] = useState(false);
-  const [isShown2, setIsShown2] = useState(false);
-  const [isShown3, setIsShown3] = useState(false);
-
-  const mainProjects =
-    document.getElementById('mainProjectSection')?.childNodes;
-
   return (
     <>
       <Navbar></Navbar>
@@ -93,47 +52,12 @@ const Dashboard = () => {
           </div>
         </header>
       </div>
-
       <div className=" w-full h-16 z-10 flex justify-center items-center my-5">
         PROJETOS PRINCIPAIS
       </div>
-
-      {/* {isShown1 ? (
-          
-            <div
-              id="mainProject-0"
-              onMouseOver={mainMouseOver}
-              onMouseOut={mainMouseOut}
-              className="mainProjects bg-white bg-blue w-full h-96 rounded-3xl z-10 cursor-pointer "
-            ></div>
-          
-        ) : (
-          ''
-        )}
-        {isShown2 ? (
-          <div
-            id="mainProject-1"
-            onMouseOver={mainMouseOver}
-            onMouseOut={mainMouseOut}
-            className="mainProjects bg-white w-full h-96 rounded-3xl z-10 cursor-pointer "
-          ></div>
-        ) : (
-          ''
-        )}
-        {isShown3 ? (
-          <div
-            id="mainProject-2"
-            onMouseOver={mainMouseOver}
-            onMouseOut={mainMouseOut}
-            className="mainProjects bg-white w-full h-96 rounded-3xl z-10 cursor-pointer "
-          ></div>
-        ) : (
-          ''
-        )} */}
-
       <section
         id="mainProjectSection"
-        className="container mx-auto grid lg:grid-cols-3 md:grid-cols-3 gap-4 sm:grid-cols-1"
+        className="container paddingClamp mx-auto grid lg:grid-cols-3 md:grid-cols-3 gap-4 sm:grid-cols-1"
       >
         <MainProjects></MainProjects>
       </section>
@@ -143,7 +67,7 @@ const Dashboard = () => {
       </div>
       <section
         id="lastProjectSection"
-        className="container mx-auto lg:px-40 sm:px-10 grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1 "
+        className="container mx-auto grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1 "
       >
         <Lastprojects></Lastprojects>
       </section>
@@ -165,7 +89,12 @@ const Dashboard = () => {
             }}
           >
             <ambientLight color={'white'} intensity={0.5} />
-            <pointLight color="blue" position={[5, 5.4, 6]} intensity={5} />
+            <pointLight
+              // color="rgb(0, 105, 179, 1)"
+              color="blue"
+              position={[5, 5.4, 6]}
+              intensity={5}
+            />
             <axesHelper args={[10]} />
             <MyCameraRef></MyCameraRef>
             <Suspense fallback={null}>

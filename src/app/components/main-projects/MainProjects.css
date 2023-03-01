@@ -6,6 +6,9 @@
  animation-delay: 1s;
 }
 
+
+
+
 .projectBoxClass {
     animation-name: fakeLoading;
     animation-iteration-count: 1;
@@ -29,3 +32,9 @@
       transform-origin: 0% 0%;
     }
   }
+
+  /* .projectBox {
+    background: #9acd32;
+    border-radius: 1.5rem !important;
+  } */
+

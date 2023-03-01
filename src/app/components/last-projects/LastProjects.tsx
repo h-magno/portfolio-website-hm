@@ -7,7 +7,8 @@ const LastProjects = () => {
   useEffect(() => {
     fetch('https://api.github.com/users/henrique-magno-dev/repos', {
       headers: {
-        Authorization: `Bearer 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`
+        Authorization: `Bearer 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`
+
       }
     })
       .then((res) => res.json()) 
@@ -30,7 +31,7 @@ const LastProjects = () => {
   return (
     <>
       {data.map((e, i) => {
-        if (data[i].homepage != null) {
+        if (data[i].stargazers_count == '0' && data[i].homepage != null) {
           counter++;
           return (
             <Link
@@ -76,9 +77,15 @@ const LastProjects = () => {
                   <div className="h-1/3 flex text-white justify-center items-center">
                     <Link
                       href={`${data[i].html_url}`}
-                      className="border w-48  flex items-center justify-center mx-4 rounded-xl lg:h-14 md:h-16 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
+                      className="border w-32  flex items-center justify-center mx-4 rounded-xl lg:h-14 md:h-16 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
                     >
-                      VER MAIS
+                      GitHub Repo
+                    </Link>
+                    <Link
+                      href={`${data[i].html_url}`}
+                      className="border w-32  flex items-center justify-center mx-4 rounded-xl lg:h-14 md:h-16 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
+                    >
+                      Deployed App
                     </Link>
                   </div>
                 </div>
