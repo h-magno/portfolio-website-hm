@@ -1,24 +1,21 @@
+.motherDiv::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
 
-.projectBoxClass {
-    animation-name: fakeLoading;
-    animation-iteration-count: 1;
-    animation-duration: 1s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-  }
-  @keyframes fakeLoading {
-    0% {
-      opacity: 100%;
-      -webkit-transform: scale(0);
-      transform: scale(0);
-      -webkit-transform-origin: 0% 0%;
-      transform-origin: 0% 0%;
-    }
-    100% {
-      opacity: 100%;
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      -webkit-transform-origin: 0% 0%;
-      transform-origin: 0% 0%;
-    }
-  }
+.bottomBtn {
+  background: rgba(255, 255, 255, 0.042);
+  border-radius: 0 0 1.5rem 1.5rem;
+
+}
+
+.motherDiv:hover > .bottomBtn {
+  background-color: rgba(255, 255, 255, 0.133);
+  border-radius: 0 0 1.5rem 1.5rem;
+ 
+}

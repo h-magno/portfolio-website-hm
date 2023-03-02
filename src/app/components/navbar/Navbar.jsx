@@ -1,11 +1,9 @@
-import { Button, Container } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
+import { Button, Container } from '@mui/material';import AppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Grid';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import './Navbar.css';
 import Link from 'next/link';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-
 
 const navbarStyle = {
   container: {
@@ -15,37 +13,8 @@ const navbarStyle = {
     top: '0',
     zIndex: '99',
     color: 'black',
-    // background: '#ffffffaf',
     backdropFilter: 'blur(6px)',
     boxShadow: '1px 1px 9px 2px #0000003d'
-  },
-
-  buttonStyle: {
-    fontFamily: 'Noto Sans Mono',
-    width: '180px',
-    height: '45px',
-    marginRight: '10px',
-    borderRadius: '15px',
-    color: 'royalblue',
-    borderColor: 'royalblue',
-    fontWeight: '600',
-    borderWidth: '1px',
-    background: '#4169e114',
-    '&:hover': {
-      borderColor: 'royalblue',
-      transform: 'scale(0.995)'
-    }
-  },
-  buttonStyle2: {
-    color: 'yellowgreen',
-    borderColor: 'yellowgreen',
-    borderWidth: '1px',
-    background: '#9acd321a',
-    '&:hover': {
-      background: '#9acd3214',
-      borderColor: 'yellowgreen',
-      transform: 'scale(0.995)'
-    }
   },
   navMenuLiStyle: {
     fontSize: '16px',
@@ -53,17 +22,18 @@ const navbarStyle = {
     fontWeight: '400',
     cursor: 'pointer'
   },
-  dotAndParentesis: {
-    fontSize: '22px',
-    color: 'yellowgreen'
-  }
+
 };
 
 const Navbar = () => {
-    
   return (
     <>
-      <Grid container className='lg:flex md:flex sm:hidden' justifyContent={'center'} style={navbarStyle.container}>
+      <Grid
+        container
+        className="lg:flex md:flex sm:hidden"
+        justifyContent={'center'}
+        style={navbarStyle.container}
+      >
         <Grid
           item
           xs={12}
@@ -80,33 +50,36 @@ const Navbar = () => {
             <ul className="menu-after">
               <li style={navbarStyle.navMenuLiStyle}>
                 <Link href="/portfolio-app">
-                  <span style={navbarStyle.dotAndParentesis}>.</span>Portfólio
-                  <span style={navbarStyle.dotAndParentesis}>()</span>
+                  <p className="text-lime-400">
+                    .<span className="text-white">Portfólio</span>()
+                  </p>
                 </Link>
               </li>
               <li style={navbarStyle.navMenuLiStyle}>
                 <Link href="/skills">
-                  <span style={navbarStyle.dotAndParentesis}>.</span>Skills
-                  <span style={navbarStyle.dotAndParentesis}>()</span>
+                  <p className="text-lime-400">
+                    .<span className="text-white">Skills</span>()
+                  </p>
                 </Link>
               </li>
               <li style={navbarStyle.navMenuLiStyle}>
                 <Link href="/about-me">
-                  <span style={navbarStyle.dotAndParentesis}>.</span>SobreMim
-                  <span style={navbarStyle.dotAndParentesis}>()</span>
+                  <p className="text-lime-400">
+                    .<span className="text-white">Sobremim</span>()
+                  </p>
                 </Link>
               </li>
             </ul>
           </div>
           <div className="">
             <Button
-              className="bg-blue-600 bg-opacity-5 text-blue-600 w-44 h-12 rounded-2xl border border-blue-600  mx-2 hover:bg-opacity-10 font-mono text-base font-thin"
+              className="bg-blue-600 bg-opacity-5 text-blue-600 w-44 h-12 rounded-2xl border-2 border-blue-600  mx-2 hover:bg-opacity-10 font-mono text-base font-extrabold"
               variant="outlined"
             >
               CURRÍCULO PDF
             </Button>
             <Button
-              className="bg-lime-400  bg-opacity-5 text-lime-400 w-44 h-12 rounded-2xl border border-lime-400 mx-2 hover:bg-opacity-10 font-mono text-base font-extralight btn-navbar2"
+              className="bg-lime-400  bg-opacity-5 text-lime-400 w-44 h-12 rounded-2xl border-2 border-lime-400 mx-2 hover:bg-opacity-10 font-mono text-base font-extrabold btn-navbar2"
               variant="outlined"
             >
               CONTATO

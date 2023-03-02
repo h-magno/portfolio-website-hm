@@ -8,6 +8,8 @@ import Sphere2 from '../components/react-three-fiber/sphere2/Sphere2';
 import ReflectorComp from '../components/reflector/ReflectorComp';
 import Lastprojects from '../components/last-projects/LastProjects';
 import MainProjects from '../components/main-projects/MainProjects';
+import Fab from '@mui/material/Fab';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const homeStyle = {
   // headlinePortfolio: {
@@ -24,6 +26,7 @@ const Dashboard = () => {
   return (
     <>
       <Navbar></Navbar>
+
       <div
         className=" top-0 left-0 flex align-middle items-center justify-center flex-col w-full"
         style={{ height: '80svh' }}
@@ -41,22 +44,25 @@ const Dashboard = () => {
             </span>
           </div>
           <div className="w-full absolute bottom-10">
-            <span className="font-light text-base">Criado por:</span>
+            <span className="textoCapa2">Criado por:</span>
             <span
               className="font-extrabold textoCapa2 tracking-wide ml-3"
               style={homeStyle.headlineHM}
             >
-              HENRIQUE MAGNO
+              HENRIQUE MAGNO{' '}
+              <Fab className="bg-blue-50  fixed bottom-10 right-10">
+                <SettingsIcon />
+              </Fab>
             </span>
           </div>
         </header>
       </div>
-      <div className=" w-full h-16 z-10 flex justify-center items-center my-5">
-        PROJETOS PRINCIPAIS
+      <div className=" w-full h-16 z-10 flex justify-center items-center my-5  ">
+        <span className='z-10 absolute'>PROJETOS PRINCIPAIS</span>
       </div>
       <section
         id="mainProjectSection"
-        className="container paddingClamp mx-auto grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1"
+        className="container paddingClamp mx-auto grid grid-cols-3 gap-4 sm:gap-2"
       >
         <MainProjects></MainProjects>
       </section>
@@ -66,7 +72,7 @@ const Dashboard = () => {
       </div>
       <section
         id="lastProjectSection"
-        className="container mx-auto grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1 "
+        className="container paddingClamp mx-auto grid grid-cols-3 gap-4 sm:gap-2"
       >
         <Lastprojects></Lastprojects>
       </section>

@@ -1,7 +1,7 @@
-'use client';
-import { useState, useEffect } from 'react';
+'use client';import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Tilt from 'react-parallax-tilt';
+import './LastProjects.css'
 
 const LastProjects = () => {
   useEffect(() => {
@@ -11,7 +11,7 @@ const LastProjects = () => {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_GIT}`
       }
     })
-      .then((res) => res.json()) 
+      .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
 
@@ -31,15 +31,18 @@ const LastProjects = () => {
   return (
     <>
       {data.map((e, i) => {
-        if (data[i].stargazers_count == '0' && data[i].homepage != null) {
+        // if (data[i].stargazers_count == '0' && data[i].homepage != null) {
+        if (data[i].stargazers_count == '0') {
           counter++;
           return (
             <Link
               className="projectBox"
-              id={`lastProjects-${counter}`}
+              id={`last-projects-${counter}`}
               onMouseOver={() => {
                 lastProjects?.forEach((e, i) => {
-                  let projectGroup = document.getElementById(`lastProjects-${i}`);
+                  let projectGroup = document.getElementById(
+                    `last-projects-${i}`
+                  );
                   if (projectGroup != null) {
                     projectGroup.style.transform = 'scale(0.95)';
                     projectGroup.style.transitionDuration = '0.2s';
@@ -49,7 +52,9 @@ const LastProjects = () => {
               onMouseOut={() => {
                 {
                   lastProjects?.forEach((e, i) => {
-                    let projectGroup = document.getElementById(`lastProjects-${i}`);
+                    let projectGroup = document.getElementById(
+                      `last-projects-${i}`
+                    );
                     if (projectGroup != null) {
                       projectGroup.style.transform = 'scale(1)';
                       projectGroup.style.transitionDuration = '0.5s';
@@ -61,30 +66,42 @@ const LastProjects = () => {
             >
               <Tilt
                 glareEnable={true}
-                tiltMaxAngleX={3}
-                tiltMaxAngleY={3}
+                tiltMaxAngleX={5}
+                tiltMaxAngleY={5}
                 perspective={1000}
-                glareMaxOpacity={0}
+                glareMaxOpacity={0.5}
+                glareColor={'#001fff'}
+                glareReverse={true}
+                glareBorderRadius={'1.5rem'}
               >
-                <div className="w-full h-96 rounded-3xl text-white  z-10 cursor-pointer p-10 relative bg-gradient-to-t from-blue-900 to-blue-600">
-                  <div className="block  h-1/3 text-center">
-                    <h1>{data[i].name}</h1>
+                <div
+                  id={`projectBoxId-${counter}`}
+                  className="projectBoxClass motherDiv relative xl-96 lg:h-96 md:h-48 sm:h-32 rounded-3xl text-white cursor-pointer bg-gradient-to-t from-blue-800 to-blue-500"
+                >
+                  <div
+                    className="tituloConteudo h-1/4 text-center 
+                    xl:mb-10 xl:pt-10 
+                    lg:pt-7
+                    md:mb-5 md:pt-10 md:px-10 
+                    sm:flex sm:justify-center sm:items-center sm:h-full sm:px-5 
+                  "
+                  >
+                    <h1 className="font-bold capitalize titulo ">
+                      {data[i].name.replace('-hm', '').replace('-', ' ')}
+                    </h1>
                   </div>
-                  <div className="block h-1/3 text-center">
-                    {data[i].description}
+                  <div className="h-1/3 texto text-center px-10 sm:hidden">
+                    <span className="xl:block lg:block md:hidden font-medium ">
+                      {data[i].description.substring(0, 100)}
+                    </span>
                   </div>
-                  <div className="h-1/3 flex text-white justify-center items-center">
-                    <Link
+
+                  <div className="bottomBtn lg:h-1/4 md:h-1/3 w-full flex sm:hidden absolute bottom-0 ">
+                  <Link
                       href={`${data[i].html_url}`}
-                      className="border w-32  flex items-center justify-center mx-4 rounded-xl lg:h-14 md:h-16 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
+                      className="border-b-1 w-full h-full flex items-center justify-center rounded-b-3xl duration-500 text-sm "
                     >
-                      GitHub Repo
-                    </Link>
-                    <Link
-                      href={`${data[i].html_url}`}
-                      className="border w-32  flex items-center justify-center mx-4 rounded-xl lg:h-14 md:h-16 p-2 bg-gray-400 hover:bg-lime-500 duration-500 "
-                    >
-                      Deployed App
+                    ver mais
                     </Link>
                   </div>
                 </div>

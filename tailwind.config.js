@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      screens: { 
+        'sm': {'max': '768px'}, 
+       },
       colors: {
         lime: {
           50: 'rgb(247 254 231)',
