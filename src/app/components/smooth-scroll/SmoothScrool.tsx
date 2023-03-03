@@ -3,12 +3,12 @@ import { useEffect } from 'react';
 import Scrollbar from 'smooth-scrollbar'
 
 var options = {
-    damping: 0.1
+    damping: 0.1,
 }
 
 const SmoothScroll = () => {
-
     useEffect(() => {
+
         Scrollbar.init(document.body, options);
 
 

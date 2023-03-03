@@ -1,15 +1,18 @@
-'use client';
-import { useState, useEffect } from 'react';
+'use client';import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Tilt from 'react-parallax-tilt';
 import './MainProjects.css';
 import { Button } from '@mui/material';
+import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+
 
 const MainProjects = () => {
+  const router = useRouter();
+
   useEffect(() => {
     fetch('https://api.github.com/users/henrique-magno-dev/repos', {
       headers: {
-        // Authorization: `Bearer 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`
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_GIT}`
       }
     })
@@ -22,15 +25,16 @@ const MainProjects = () => {
   const mainProjects =
     document.getElementById('mainProjectSection')?.childNodes;
 
-    
-
   return (
     <>
       {data.map((e, i) => {
+
+
         if (data[i].stargazers_count != '0') {
           counter++;
           return (
-            <Link
+            <div
+              key={`lastp-${i}`}
               className="projectBox"
               id={`main-projects-${counter}`}
               onMouseOver={() => {
@@ -57,7 +61,7 @@ const MainProjects = () => {
                   });
                 }
               }}
-              href={`portfolio-app/${i}`}
+              onClick={() => router.push(`portfolio-app/${i}`)}
             >
               <Tilt
                 glareEnable={true}
@@ -91,16 +95,16 @@ const MainProjects = () => {
                     </span>
                   </div>
                   <div className="lg:h-1/4 bottomBtn md:h-1/3 w-full flex sm:hidden absolute bottom-0">
-                    <Link
-                      href={`${data[i].html_url}`}
+                    <div
+
                       className="border-b-1  w-full h-full flex items-center justify-center rounded-b-3xl hover:bg-white hover:bg-opacity-10 duration-500 text-sm "
                     >
                       ver mais
-                    </Link>
+                    </div>
                   </div>
                 </div>
               </Tilt>
-            </Link>
+            </div>
           );
         }
       })}

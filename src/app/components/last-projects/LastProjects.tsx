@@ -1,10 +1,13 @@
-'use client';
-import { useState, useEffect, useRef, createRef } from 'react';
+'use client';import { useState, useEffect, useRef, createRef } from 'react';
 import Link from 'next/link';
 import Tilt from 'react-parallax-tilt';
 import './LastProjects.css';
+import { useRouter } from 'next/navigation';
 
 const LastProjects = () => {
+  const router = useRouter();
+
+
   useEffect(() => {
     fetch('https://api.github.com/users/henrique-magno-dev/repos', {
       headers: {
@@ -23,11 +26,11 @@ const LastProjects = () => {
   return (
     <>
       {data.map((e, i) => {
-        // if (data[i].stargazers_count == '0' && data[i].homepage != null) {
         if (data[i].stargazers_count == '0') {
           counter++;
           return (
-            <Link
+            <div
+              key={`lastm-${i}`}
               className="projectBox"
               id={`last-projects-${counter}`}
               onMouseOver={() => {
@@ -54,7 +57,8 @@ const LastProjects = () => {
                   });
                 }
               }}
-              href={`portfolio-app/${i}`}
+              onClick={() => router.push(`portfolio-app/${i}`)}
+
             >
               <Tilt
                 glareEnable={true}
@@ -89,7 +93,7 @@ const LastProjects = () => {
                   </div>
 
                   <div className=" lg:h-1/4 md:h-1/3 sm:h-1/3 rounded-b-3xl w-full  absolute bottom-0 ">
-                    <div className='relative h-full flex '>
+                    <div className="relative h-full flex ">
                       <Link
                         href={`${data[i].html_url}`}
                         className="border-b-1 w-1/2 h-full flex items-center justify-center rounded-bl-3xl duration-500 text-sm bg-lime-500 bg-opacity-50 hover:bg-opacity-70 "
@@ -106,7 +110,7 @@ const LastProjects = () => {
                   </div>
                 </div>
               </Tilt>
-            </Link>
+            </div>
           );
         }
       })}

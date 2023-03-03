@@ -10,22 +10,15 @@
     font-weight: 500;
     text-transform: uppercase;
 }
-.menu-after > li > *{
-    color: rgb(255, 255, 255);
-    transition-duration: 0.5s;
-}
-.menu-after > li:hover > *{
-    color: #eaeaea;
-    transition-duration: 0.5s;
-}
 
-.hoverScale:hover {
-    transform: scale(1.005);
-    transition-duration: 0.1s;
+.navWidth  {
+    width: 99%;
 }
 
 .btn-navbar2:hover {
     border-color: yellowgreen;
     background-color: rgba(153, 205, 50, 0.105);
 }
+
+
 

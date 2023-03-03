@@ -46,7 +46,7 @@ export default function Home() {
         style={{ position: 'absolute', top: 0, zIndex: '90' }}
       >
         <div style={{ height: '100vh', width: '100vw' }}>
-          <Canvas
+          {/* <Canvas
             id="bg"
             camera={{
               fov: 20,
@@ -77,7 +77,7 @@ export default function Home() {
             ></ReflectorComp>
             <Draggable />
             <OrbitControls />
-          </Canvas>
+          </Canvas> */}
         </div>
       </div>
     </>
