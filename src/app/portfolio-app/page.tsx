@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import Navbar from '../components/navbar/Navbar';
 import './font-import.css';
 import { Canvas } from '@react-three/fiber';
@@ -10,55 +10,84 @@ import Lastprojects from '../components/last-projects/LastProjects';
 import MainProjects from '../components/main-projects/MainProjects';
 import Fab from '@mui/material/Fab';
 import SettingsIcon from '@mui/icons-material/Settings';
+import SmoothScroll from '../components/smooth-scroll/SmoothScrool';
 
 const homeStyle = {
-  // headlinePortfolio: {
-  //   fontFamily: 'Anek Telugu',
-  //   fontSize: '125px',
-  //   marginTop: '10px'
-  // },
   headlineHM: {
     fontFamily: 'Anek Telugu'
   }
 };
 
+const clientWidth = () => {
+  window.addEventListener('resize', () => {
+    let larguraTela = document.documentElement.clientWidth;
+
+    return larguraTela <= 912 ? [6.77, 4.36, 6.05] : [7, 4.4, 6];
+  });
+};
+
 const Dashboard = () => {
+  const myTitle = useRef<any>('');
+  const [myTitleState, setMyTitleState] = useState<boolean>();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      setMyTitleState(entry.isIntersecting);
+    });
+
+    observer.observe(myTitle.current);
+  }, []);
+
+  let myDocument = document.documentElement.clientWidth;
+
+  window.addEventListener('resize', () => {
+    let myDocument = document.documentElement.clientWidth;
+
+    return myDocument;
+  });
+
+  const slideInAnimation = () => {
+    return myTitleState ? 'animacaoTituloCapa' : '';
+  };
+
   return (
     <>
+      <SmoothScroll />
       <Navbar></Navbar>
-
+      <Fab className="bg-blue-50  fixed bottom-10 right-10">
+        <SettingsIcon />
+      </Fab>
       <div
         className=" top-0 left-0 flex align-middle items-center justify-center flex-col w-full"
         style={{ height: '80svh' }}
       >
         <header className="text-center h-5/6 flex flex-col justify-center relative mb-10 z-10 ">
           <div className="flex flex-col -mb-9">
-            <span className="font-extralight textoCapa">
+            <span className={`${slideInAnimation()} font-extralight textoCapa`}>
               <span className="text-lime-400">Olá,</span> bem-vindo ao meu web
             </span>
             <span
-              className="tituloCapa font-extrabold"
-              // style={homeStyle.headlinePortfolio}
+              ref={myTitle}
+              className={`${slideInAnimation()} tituloCapa font-extrabold`}
             >
-              PORTFÓLIO
+              {' '}
+              PORTFÓLIO{' '}
             </span>
           </div>
-          <div className="w-full absolute bottom-10">
+          <div className={`${slideInAnimation()} w-full absolute bottom-10`}>
             <span className="textoCapa2">Criado por:</span>
             <span
               className="font-extrabold textoCapa2 tracking-wide ml-3"
               style={homeStyle.headlineHM}
             >
               HENRIQUE MAGNO{' '}
-              <Fab className="bg-blue-50  fixed bottom-10 right-10">
-                <SettingsIcon />
-              </Fab>
             </span>
           </div>
         </header>
       </div>
       <div className=" w-full h-16 z-10 flex justify-center items-center my-5  ">
-        <span className='z-10 absolute'>PROJETOS PRINCIPAIS</span>
+        <span className="z-10 absolute">PROJETOS PRINCIPAIS</span>
       </div>
       <section
         id="mainProjectSection"
@@ -85,26 +114,18 @@ const Dashboard = () => {
           <Canvas
             camera={{
               fov: 20,
-              position:
-                document.documentElement.clientWidth <= 912
-                  ? [8.696951760275208, 5.518582551921791, 7.780485268135005]
-                  : document.documentElement.clientWidth <= 1090
-                  ? [8, 5.8, 8.2]
-                  : [8.456852303528139, 5.451671860941685, 7.850283038832504]
+              position: [
+                8.456852303528139, 5.451671860941685, 7.850283038832504
+              ]
             }}
           >
             <ambientLight color={'white'} intensity={0.5} />
-            <pointLight
-              // color="rgb(0, 105, 179, 1)"
-              color="blue"
-              position={[5, 5.4, 6]}
-              intensity={5}
-            />
+            <pointLight color="blue" position={[5, 5.4, 6]} intensity={5} />
             <axesHelper args={[10]} />
             <MyCameraRef></MyCameraRef>
             <Suspense fallback={null}>
               <Sphere2
-                position={[7, 4.4, 6]}
+                position={myDocument <= 912 ? [6.77, 4.36, 6.05] : [7, 4.4, 6]}
                 rotation-x={1}
                 rotation-y={0}
                 rotation-z={0}

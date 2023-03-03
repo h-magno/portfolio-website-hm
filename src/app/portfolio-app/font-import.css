@@ -5,6 +5,10 @@
   src: url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100;200;300;400;500;600;700;800&display=swap');
 }
 
+body {
+  height: 100vh;
+}
+
 :root {
  --tituloCapa: clamp(4.06rem, calc(3.30rem + 3.80vw), 6.25rem);
  --textoCapa: clamp(1.25rem, calc(1.03rem + 1.09vw), 1.88rem);
@@ -23,6 +27,27 @@
   font-size: var(--tituloCapa) !important;
   margin-top: '10px';
 }
+
+.animacaoTituloCapa {
+  animation-name: slideIn;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  100% {
+    opacity: 100;
+    transform: translateX(0px);
+
+  }
+}
+
+
 
 * {
   margin: 0;

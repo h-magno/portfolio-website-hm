@@ -11,11 +11,13 @@ function Sphere2(props: any) {
 
   return (
     <mesh {...props} recieveShadow={true} castShadow={true} ref={boxRef}>
-      <sphereGeometry args={[0.25, 12,12]} />
+      <sphereGeometry args={document.documentElement.clientWidth <= 912
+                  ? [0.1,12,12]
+                  : [0.2,12,12] } />
       <meshPhysicalMaterial
-        wireframe
+      wireframe
         // map={texture}
-        color={'grey'}
+        color={'darkblue'}
       />
     </mesh>
   );
