@@ -7,6 +7,7 @@ var options = {
 }
 
 const SmoothScroll = () => {
+    return<></>
     useEffect(() => {
 
         Scrollbar.init(document.body, options);

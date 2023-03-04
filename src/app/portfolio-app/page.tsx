@@ -9,6 +9,7 @@ import Lastprojects from '../components/last-projects/LastProjects';
 import MainProjects from '../components/main-projects/MainProjects';
 import SmoothScroll from '../components/smooth-scroll/SmoothScrool';
 import { useInView } from 'react-intersection-observer';
+import Cursor from '../components/cursor/Cursor';
 
 const homeStyle = {
   headlineHM: {
@@ -20,6 +21,7 @@ const Dashboard = () => {
   let myDocument = document.documentElement.clientWidth;
   const { ref: refTitle, inView: titleEffect } = useInView();
 
+  
 
   const slideInAnimation = () => {
     return titleEffect ? 'titleAnimation' : '';
@@ -27,7 +29,6 @@ const Dashboard = () => {
 
   return (
     <>
-      <div id="smooth-div">
         <SmoothScroll />
         <div
           className=" top-0 left-0 flex align-middle items-center justify-center flex-col w-full"
@@ -113,7 +114,7 @@ const Dashboard = () => {
             />
           </Canvas>
         </div>
-      </div>
+      
     </>
   );
 };

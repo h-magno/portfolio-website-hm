@@ -6,7 +6,7 @@ function Sphere2(props: any) {
   const texture = useLoader(TextureLoader, 'terra.jpg');
 
   useFrame(() => {
-    boxRef.current.rotation.y += 0.00315
+    boxRef.current.rotation.y -= 0.00315
   });
 
   return (
