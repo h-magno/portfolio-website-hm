@@ -8,7 +8,7 @@ return<Reflector
     
     blur={[512, 512]} // Blur ground reflections (width, heigt), 0 skips blur
     mixBlur={0.75} // How much blur mixes with surface roughness
-    mixStrength={0.15} // Strength of the reflections
+    mixStrength={0.05} // Strength of the reflections
     resolution={2024} // Off-buffer resolution, lower=faster, higher=better quality
     args={[7, 4]} // PlaneBufferGeometry arguments
     mirror={1} // Mirror environment, 0 = texture colors, 1 = pick up env colors

@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       screens: { 
         'sm': {'max': '768px'}, 
+        'xs': {'max': '600px'}, 
        },
       colors: {
         lime: {
@@ -22,5 +23,5 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [require('daisyui')]
 };

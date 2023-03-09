@@ -10,7 +10,7 @@ import LightBulb from './components/react-three-fiber/light-bulb/LightBulb';
 import OrbitControls from './components/react-three-fiber/orbit-controls/OrbitControls';
 import Draggable from '../app/components/react-three-fiber/draggable/Draggable';
 import * as THREE from 'three';
-import Navbar from './components/navbar/Navbar';
+// import Navbar from './components/navbar/Navbar';
 import { Reflector } from '@react-three/drei';
 import MyCameraRef from './components/react-three-fiber/myCameraRef/MyCameraRef';
 import ReflectorComp from './components/reflector/ReflectorComp';
@@ -21,7 +21,7 @@ extend(THREE);
 export default function Home() {
   return (
     <>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
       {/* <div
         style={{
           position: 'absolute',

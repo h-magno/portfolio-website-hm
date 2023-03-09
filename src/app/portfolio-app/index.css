@@ -9,54 +9,7 @@ body {
   height: 100vh;
 }
 
-:root {
- --tituloCapa: clamp(4.06rem, calc(3.30rem + 3.80vw), 6.25rem);
- --textoCapa: clamp(1.25rem, calc(1.03rem + 1.09vw), 1.88rem);
- --textoCapa2: clamp(0.87rem, calc(0.75rem + 0.58vw), 1.20rem);
-}
 
-.textoCapa {
-  font-size: var(--textoCapa);
-}
-.textoCapa2 {
-  font-size: var(--textoCapa2);
-}
-
-.tituloCapa {
-  font-family: 'Anek Telugu';
-  font-size: var(--tituloCapa) !important;
-  margin-top: '10px';
-}
-
-.titleAnimation {
-  animation-name: titleEffect;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-}
-
-
-.menuAnimation > div {
-  animation-name: menuEffect;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-}
-
-
-
-@keyframes titleEffect {
-  0% {
-    opacity: 0;
-    display: block !important;
-    transform: translateX(-200px);
-  }
-  100% {
-    opacity: 100;
-    transform: translateX(0px);
-
-  }
-}
 /* @keyframes menuEffect {
   0% {
     opacity: 0;

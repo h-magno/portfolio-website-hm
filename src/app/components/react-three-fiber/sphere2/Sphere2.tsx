@@ -13,7 +13,7 @@ function Sphere2(props: any) {
     <mesh {...props} recieveShadow={true} castShadow={true} ref={boxRef}>
       <sphereGeometry args={document.documentElement.clientWidth <= 912
                   ? [0.1,12,12]
-                  : [0.2,12,12] } />
+                  : [0.15,12,12] } />
       <meshPhysicalMaterial
       wireframe
         // map={texture}

@@ -2,126 +2,189 @@
 import './globals.css';
 import Fab from '@mui/material/Fab';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Button, Container } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Grid from '@mui/material/Grid';
-import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
-import './Navbar.css';
-import Link from 'next/link';
-
 import { Anek_Telugu } from '@next/font/google';
-import { useInView } from 'react-intersection-observer';
 import Cursor from './components/cursor/Cursor';
-
+import SmoothScroll from './components/smooth-scroll/SmoothScroll';
+import Link from 'next/link';
+import Image from 'next/image';
+import stars from '../../public/stars.jpg';
+import './Navbar.css';
+import { useInView } from 'react-intersection-observer';
 
 const anekTelugu = Anek_Telugu({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800']
+    subsets: ['latin'],
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800']
 });
 
-const navbarStyle = {
-  container: {
-    width: '100%',
-    height: '120px',
-    position: 'fixed',
-    top: '0',
-    zIndex: '99',
-    color: 'black',
-    backdropFilter: 'blur(6px)',
-    boxShadow: '1px 1px 9px 2px #0000003d'
-  },
-  navMenuLiStyle: {
-    fontSize: '16px',
-    margin: '0px 10px',
-    fontWeight: '400',
-    cursor: 'pointer'
-  }
-};
-
 export default function RootLayout({
-  children
+    children
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  const { ref: downSizeMenu, inView: downSizeEffect } = useInView({
-    threshold: 0
-  });
+    const { ref: downSizeMenu, inView: downSizeEffect } = useInView({
+        threshold: 0
+    });
+    return (
+        <html lang="en" className="bg-black">
+            <Cursor />
 
-  return (
-    <html lang="en">
-      <head />
-      <Cursor/>
 
-      <div
-        className={`${
-          downSizeEffect ? 'h-32' : ' h-20 bg-black'
-        } navWidth duration-500 w-full fixed top-0 z-50 block sm:hidden `}
-      >
-        <div className="grid-custom h-full lg:px-32 md:px-10  justify-between items-center bg-blur z-50 lg:flex  md:flex sm:hidden font-mono backdrop-blur ">
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <ul className="menu-after">
-              <li style={navbarStyle.navMenuLiStyle}>
-                <Link href="/portfolio-app">
-                  <p className="text-lime-400">
-                    .<span className="text-white">Portfólio</span>()
-                  </p>
-                </Link>
-              </li>
-              <li style={navbarStyle.navMenuLiStyle}>
-                <Link href="/skills">
-                  <p className="text-lime-400">
-                    .<span className="text-white">Skills</span>()
-                  </p>
-                </Link>
-              </li>
-              <li style={navbarStyle.navMenuLiStyle}>
-                <Link href="/about-me">
-                  <p className="text-lime-400">
-                    .<span className="text-white">Sobremim</span>()
-                  </p>
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="xl:flex lg:hidden md:hidden ">
-            <button
-              className={`${
-                downSizeEffect ? 'w-44 h-12 text-base' : 'w-32 h-10 text-sm' 
-              } duration-500  bg-blue-600 bg-opacity-5 text-blue-600 rounded-2xl border-2 border-blue-600  mx-2 hover:bg-opacity-10 font-mono  font-extrabold`}
+            <head />
+            <div
+                style={{
+                    backgroundImage: `url('${stars.src}')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center bottom'
+                }}
+                className={`
+                    ${
+                        downSizeEffect
+                            ? ' -top-20'
+                            : 'bg-navbar-slide top-0 z-50'
+                    }
+                
+                    fixed h-20 w-full`}
+            ></div>
+            <div
+                className={`${
+                    downSizeEffect ? 'h-32' : ' h-20  backdrop-blur-0'
+                } navWidth fixed top-0 z-50 block w-full duration-500 sm:hidden `}
             >
-              CURRÍCULO PDF
-            </button>
-            <button
-              className={`${
-                downSizeEffect ? 'w-44 h-12 text-base' : 'w-32 h-10 text-sm'
-              } duration-500  bg-lime-400 bg-opacity-5 text-lime-400 rounded-2xl border-2 border-lime-400 mx-2 hover:bg-opacity-10 font-mono  font-extrabold btn-navbar2`}
-            >
-              CONTATO
-            </button>
-          </div>
-          <div className="xl:hidden lg:flex md:flex">
-            <button
-              className={`w-32 h-10 text-sm 
-              duration-500  bg-blue-600 bg-opacity-5 text-blue-600 rounded-2xl border-2 border-blue-600  mx-2 hover:bg-opacity-10 font-mono  font-extrabold`}
-            >
-              CURRÍCULO PDF
-            </button>
-            <button
-              className={`w-32 h-10 text-sm  duration-500  bg-lime-400 bg-opacity-5 text-lime-400 rounded-2xl border-2 border-lime-400 mx-2 hover:bg-opacity-10 font-mono  font-extrabold btn-navbar2`}
-            >
-              CONTATO
-            </button>
-          </div>
-        </div>
-      </div>
+                <div className="grid-custom bg-blur z-50 h-full  items-center justify-between font-mono backdrop-blur sm:hidden  md:flex md:px-10 lg:flex lg:px-32 ">
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ul className="menu-after">
+                            <li className="cursor-pointer py-10 text-base font-semibold">
+                                <Link href="/portfolio-app">
+                                    <p className="text-lime-400">
+                                        .
+                                        <span className="text-white">
+                                            Portfólio
+                                        </span>
+                                        ()
+                                    </p>
+                                </Link>
+                            </li>
+                            <li className="ml-2 cursor-pointer py-10 text-base font-semibold">
+                                <Link href="/skills">
+                                    <p className="text-lime-400">
+                                        .
+                                        <span className="text-white">
+                                            Skills
+                                        </span>
+                                        ()
+                                    </p>
+                                </Link>
+                            </li>
+                            <li className="ml-2 cursor-pointer py-10 text-base font-semibold">
+                                <Link href="/about-me">
+                                    <p className="text-lime-400">
+                                        .
+                                        <span className="text-white">
+                                            Sobremim
+                                        </span>
+                                        ()
+                                    </p>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="md:hidden lg:hidden xl:flex ">
+                        <button
+                            className={`mx-2  rounded-2xl border-2 border-blue-600 bg-blue-600 bg-opacity-5 font-mono  font-extrabold text-blue-600 duration-500  hover:bg-opacity-10 ${
+                                downSizeEffect
+                                    ? 'h-12 w-44 text-base'
+                                    : 'h-10 w-32 text-sm'
+                            } `}
+                        >
+                            CURRÍCULO PDF
+                        </button>
+                        <label
+                            htmlFor="my-modal-4"
+                            className={`btn-navbar2 mx-2 flex cursor-pointer items-center justify-center rounded-2xl border-2 border-lime-400 bg-lime-400 bg-opacity-5 font-mono font-extrabold text-lime-400  duration-500 hover:bg-opacity-10 ${
+                                downSizeEffect
+                                    ? 'h-12 w-44 text-base'
+                                    : 'h-10 w-32 text-sm'
+                            } `}
+                        >
+                            CONTATO
+                        </label>
+                    </div>
+                    <div className="md:flex lg:flex xl:hidden">
+                        <button
+                            className={`mx-2 h-10 w-32
+                  rounded-2xl  border-2 border-blue-600 bg-blue-600 bg-opacity-5 font-mono text-sm  font-extrabold text-blue-600 duration-500  hover:bg-opacity-10`}
+                        >
+                            CURRÍCULO PDF
+                        </button>
+                        <label
+                            htmlFor="my-modal-4"
+                            className={`btn-navbar2 mx-2 flex h-10 w-32 cursor-pointer items-center  justify-center  rounded-2xl border-2 border-lime-400 bg-lime-400 bg-opacity-5 font-mono text-sm font-extrabold text-lime-400  duration-500 hover:bg-opacity-10 `}
+                        >
+                            CONTATO
+                        </label>
+                    </div>
+                </div>
+            </div>
 
-      <Fab className="bg-blue-50  fixed bottom-10 right-10">
-        <SettingsIcon />
-      </Fab>
-      <body className="bg-black text-white font-mono overflow-x-hidden ">
-        <div ref={downSizeMenu} className="menuRef block w-20 h-1 "></div>
-        {children}
-      </body>
-    </html>
-  );
+            <Fab className="fixed  bottom-10 right-10 bg-blue-50">
+                <SettingsIcon />
+            </Fab>
+            <SmoothScroll />
+            <body className="overflow-x-hidden font-mono text-white ">
+            <div
+                ref={downSizeMenu}
+                className="menuRef absolute top-0 h-1 w-20 "
+            ></div>
+                {children}
+            </body>
+            <input type="checkbox" id="my-modal-4" className="modal-toggle" />
+            <label htmlFor="my-modal-4" className="modal cursor-pointer">
+                <label
+                    className="modal-box relative bg-black font-mono text-white"
+                    htmlFor=""
+                >
+                    <div className="chat chat-start">
+                        <div className="chat-image avatar">
+                            <div className="w-10 rounded-full">
+                                <Image
+                                    src="/chat-pic.jpg"
+                                    alt="Picture of the author"
+                                    width={500}
+                                    height={500}
+                                />
+                            </div>
+                        </div>
+                        <div className="chat-header text-gray-300">
+                            Henrique Magno
+                        </div>
+                        <div className="chat-bubble">
+                            <h3>Envie-me um email. 😃</h3>
+                        </div>
+                    </div>
+                    <form className="pt-10 text-black">
+                        <input
+                            type="text"
+                            placeholder="Nome (opcional)"
+                            className="input w-full"
+                        />
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            className="input mt-3 w-full"
+                        />
+                        <input
+                            type="email"
+                            placeholder="Mensagem"
+                            className="input mt-3 h-32 w-full"
+                        />
+                        <div className="mt-3 flex h-20 w-full items-center justify-end">
+                            <button className="btn mx-2 w-32 rounded-2xl border-2 border-blue-600 bg-blue-600 bg-opacity-5 font-mono font-extrabold text-blue-600 duration-500  hover:border-blue-600 hover:bg-opacity-10">
+                                Button
+                            </button>
+                        </div>
+                    </form>
+                </label>
+            </label>
+        </html>
+    );
 }

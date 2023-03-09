@@ -1,4 +1,4 @@
-* {
+/* * {
     cursor: none !important;
 }
 
@@ -8,10 +8,15 @@
     top: 0;
     left: 0;
     pointer-events: none;
-    width: 20px;
-    height: 20px;
-    background: white;
-    border-radius: 50%;
 
+
+    width: 0px;
+    height: 0px;
+    margin-left: -8px;
+    margin-top: -2px;
+    border: 18px solid transparent;
+    border-top: 0;
+    border-bottom: 37px solid rgb(255, 255, 255);
+    transform: rotate(-35deg) !important;
     z-index: 100;
-}
+} */
