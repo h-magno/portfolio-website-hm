@@ -12,7 +12,7 @@ function Controls(props) {
  
   return (
     <>
-    {console.log(camera.position)}
+    {/* {console.log(camera.position)} */}
     <orbitControls attach={'orbitControls'} args={[camera, gl.domElement]} />
     </>
   );

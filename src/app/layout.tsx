@@ -25,23 +25,25 @@ export default function RootLayout({
         threshold: 0
     });
     return (
-        <html lang="en" className="bg-black">
+        <html lang="pt-br" >
             <Cursor />
 
 
             <head />
             <div
                 style={{
-                    backgroundImage: `url('${stars.src}')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center bottom'
+                    // backgroundImage: `url('${stars.src}')`,
+                    // backgroundSize: 'cover',
+                    // backgroundPosition: 'center bottom',
+                    // width: '99%'
                 }}
                 className={`
                     ${
                         downSizeEffect
-                            ? ' -top-20'
-                            : 'bg-navbar-slide top-0 z-50'
+                            ? ' -top-20 bg-opacity-0'
+                            : 'bg-navbar-slide top-0 z-50 bg-black bg-opacity-100'
                     }
+                    
                 
                     fixed h-20 w-full`}
             ></div>
@@ -53,7 +55,7 @@ export default function RootLayout({
                 <div className="grid-custom bg-blur z-50 h-full  items-center justify-between font-mono backdrop-blur sm:hidden  md:flex md:px-10 lg:flex lg:px-32 ">
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ul className="menu-after">
-                            <li className="cursor-pointer py-10 text-base font-semibold">
+                            <li className="cursor-pointer py-10 text-base ">
                                 <Link href="/portfolio-app">
                                     <p className="text-lime-400">
                                         .
@@ -64,7 +66,7 @@ export default function RootLayout({
                                     </p>
                                 </Link>
                             </li>
-                            <li className="ml-2 cursor-pointer py-10 text-base font-semibold">
+                            <li className="ml-3 cursor-pointer py-10 text-base ">
                                 <Link href="/skills">
                                     <p className="text-lime-400">
                                         .
@@ -75,7 +77,7 @@ export default function RootLayout({
                                     </p>
                                 </Link>
                             </li>
-                            <li className="ml-2 cursor-pointer py-10 text-base font-semibold">
+                            <li className="ml-3 cursor-pointer py-10 text-base ">
                                 <Link href="/about-me">
                                     <p className="text-lime-400">
                                         .
@@ -172,10 +174,9 @@ export default function RootLayout({
                             placeholder="Email"
                             className="input mt-3 w-full"
                         />
-                        <input
-                            type="email"
+                        <textarea
                             placeholder="Mensagem"
-                            className="input mt-3 h-32 w-full"
+                            className="input mt-3 h-52 w-full pt-2"
                         />
                         <div className="mt-3 flex h-20 w-full items-center justify-end">
                             <button className="btn mx-2 w-32 rounded-2xl border-2 border-blue-600 bg-blue-600 bg-opacity-5 font-mono font-extrabold text-blue-600 duration-500  hover:border-blue-600 hover:bg-opacity-10">

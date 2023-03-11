@@ -40,7 +40,7 @@ const routeTypes = () => {
 
   return (
     <Box
-      sx={{
+      style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -85,7 +85,7 @@ const routeTypes = () => {
           <> {usePathname()} </>
         )}
       </div>
-      <div>
+      {/* <div>
         {dataTeste4 !== true ? (
           <Button variant="contained" onClick={() => setDataTest4(true)}>
             Search Params
@@ -95,7 +95,7 @@ const routeTypes = () => {
         
           
         }
-      </div>
+      </div> */}
     </Box>
   );
 };

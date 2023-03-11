@@ -8,17 +8,17 @@ export default function MyCameraRef() {
 
   useFrame(() => {
     if (cameraRef.current) {
-      const position = cameraRef.current.position;
-      console.log(
-        `Posição da câmera: x=${position.x}, y=${position.y}, z=${position.z}`
-      );
+    //   const position = cameraRef.current.position;
+    //   console.log(
+    //     `Posição da câmera: x=${position.x}, y=${position.y}, z=${position.z}`
+    //   );
     }
   });
 
   return (
     <>
       
-      {console.log(cameraRef)}
+      {/* {console.log(cameraRef)} */}
     </>
   );
 }

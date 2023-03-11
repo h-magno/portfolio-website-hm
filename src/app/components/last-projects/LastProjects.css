@@ -7,6 +7,12 @@
   height: 100%;
   
 }
+.projectsBoxBlur {
+
+    background-color: rgba(240, 248, 255, 0.072);
+    filter: blur(2px);
+  
+}
 
 .bottomBtn {
   background: rgba(255, 255, 255, 0.08);

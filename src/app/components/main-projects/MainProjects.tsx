@@ -1,4 +1,5 @@
-'use client';import React, { useState, useEffect } from 'react';
+'use client';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Tilt from 'react-parallax-tilt';
 import './MainProjects.css';
@@ -6,6 +7,7 @@ import { Button } from '@mui/material';
 import { redirect } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useWindowSize } from 'react-use';
+import mainTemplate from '../../../../public/mainTemplate.jpg';
 
 const MainProjects = () => {
     const { width: windowWidth, height: windowHeigh } = useWindowSize();
@@ -29,7 +31,6 @@ const MainProjects = () => {
     const mainProjects =
         document.getElementById('mainProjectSection')?.childNodes;
 
-    
     return (
         <React.Fragment>
             {data.map((e, i) => {
@@ -69,72 +70,92 @@ const MainProjects = () => {
                                     });
                                 }
                             }}
-                            onClick={() => router.push(`portfolio-app/${i}`)}
                         >
                             <Tilt
                                 glareEnable={true}
-                                tiltMaxAngleX={5}
-                                tiltMaxAngleY={5}
+                                tiltMaxAngleX={2}
+                                tiltMaxAngleY={2}
                                 perspective={1000}
-                                glareMaxOpacity={0.5}
-                                glareColor={'#9acd32'}
+                                glareMaxOpacity={0.1}
+                                glareColor={'#EBEAF0'}
                                 glareReverse={true}
                                 glareBorderRadius={'1.5rem'}
                             >
                                 <div
                                     id={`projectBoxId-${counter}`}
-                                    className="projectBoxClass motherDiv relative cursor-pointer rounded-3xl bg-gradient-to-t from-lime-800 to-lime-500 sm:h-40 sm:py-5 md:h-48 md:p-0 lg:h-96 "
+                                    className="projectBoxClass  relative cursor-pointer items-center justify-center  rounded-3xl border border-gray-700 px-5 pb-5 sm:h-auto md:w-auto md:h-auto lg:h-96"
                                 >
-                                    <div
-                                        className="tituloConteudo flex  items-center justify-center sm:hidden md:h-1/5"
-                                    >
-                                        <h1 className="titulo   font-bold capitalize   ">
-                                            {data[i].name
-                                                .replace('-hm', '')
-                                                .replace('-', ' ')}
-                                        </h1>
+                                    <div className="z-50 my-5 w-full  text-center text-2xl font-extrabold capitalize md:mb-0">
+                                        {data[i].name
+                                            .replace('-hm', '')
+                                            .replace('-', ' ')}
                                     </div>
-                                    <div className="texto flex px-5 sm:h-full sm:pb-0 md:h-3/5 md:pb-5 ">
-                                        <div className="flex items-center justify-center rounded-3xl xs:w-2/4 sm:w-4/12 sm:pl-10 md:w-4/12 lg:w-2/4">
-                                            <div className="flex h-full w-full items-center justify-center rounded-3xl border-2">
-                                                IMAGEM
+                                    <div className="flex h-4/5 items-center justify-center">
+                                        <div className="w-5/12  ">
+                                            <div className="w-full sm:h-48 md:h-32 lg:h-52  xs:h-32 ">
+                                                <div
+                                                    style={{
+                                                        backgroundImage: `url('${mainTemplate.src}')`,
+                                                        backgroundSize: 'cover',
+                                                        backgroundPosition:
+                                                            'center center'
+                                                    }}
+                                                    className="h-full w-full rounded-3xl"
+                                                ></div>
                                             </div>
                                         </div>
-                                        <div className="pl-5 sm:w-3/5 sm:text-left  md:flex md:w-3/4 md:items-center lg:block lg:w-2/4">
-                                            <div className="titulo hidden h-1/4 text-xl font-extrabold sm:block sm:text-center">
-                                                {' '}
-                                                {data[i].name
-                                                    .replace('-hm', '')
-                                                    .replace('-', ' ')}
+                                        <div className="w-7/12 pl-5">
+                                            <div
+                                                tabIndex={0}
+                                                className=" collapse-arrow collapse rounded-3xl border-2 border-blue-600 bg-gray-900 text-white"
+                                            >
+                                                <div className="text-medium text-white-400 collapse-title font-thin">
+                                                    Recursos
+                                                </div>
+                                                <div className="collapse-content">
+                                                    {data[i].topics.map(
+                                                        (e: Array<string>) => {
+                                                            console.log(e);
+                                                            return (
+                                                                <div className="badge ml-1">
+                                                                    #{e}
+                                                                </div>
+                                                            );
+                                                        }
+                                                    )}
+                                                </div>
                                             </div>
-                                            <div className="h-3/4 leading-4  sm:hidden md:leading-normal">
-                                                {windowWidth >= 1024
+                                            <div className=" leading-4 sm:hidden md:leading-normal lg:my-5 ">
+                                                {windowWidth >= 1285
                                                     ? data[
                                                           i
                                                       ].description.substring(
                                                           0,
-                                                          100
+                                                          110
                                                       )
-                                                    : data[
+                                                    : windowWidth >= 1024
+                                                    ? data[
                                                           i
                                                       ].description.substring(
                                                           0,
-                                                          30
-                                                      )}
-                                                ...
+                                                          50
+                                                      )
+                                                    : ''}
                                             </div>
-
-                                            <div className="bottomBtn mt-10 flex h-2/5 items-center justify-center text-sm  duration-500 hover:bg-white hover:bg-opacity-10 md:hidden ">
+                                            <div
+                                                onClick={() =>
+                                                    router.push(
+                                                        `portfolio-app/${i}`
+                                                    )
+                                                }
+                                                className="mt-2 flex h-14 items-center justify-center rounded-3xl bg-white bg-opacity-5 text-sm duration-500 hover:bg-opacity-10 "
+                                            >
                                                 ver mais
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="bottomBtn absolute bottom-0  flex w-full sm:hidden md:h-1/5 lg:h-1/5">
-                                        <div className="border-b-1  flex h-full w-full items-center justify-center rounded-b-3xl text-sm duration-500 hover:bg-white hover:bg-opacity-10 ">
-                                            ver mais
-                                        </div>
-                                    </div>
                                 </div>
+                                <div className="projectBoxClass projectsBoxBlur absolute top-0 -z-10 h-full w-full rounded-3xl"></div>
                             </Tilt>
                         </div>
                     );

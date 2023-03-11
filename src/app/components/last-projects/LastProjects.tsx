@@ -8,38 +8,6 @@ import { useRouter } from 'next/navigation';
 const LastProjects = () => {
     const router = useRouter();
 
-    const arrayOfColorFunctions = [
-        '0',
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        'a',
-        'b',
-        'c',
-        'd',
-        'e',
-        'f'
-    ];
-
-    let randomColorString = '#';
-    function newColorFind() {
-        for (let x = 0; x < 6; x++) {
-            let index = Math.floor(Math.random() * 16);
-            let value = arrayOfColorFunctions[index];
-
-            randomColorString += value;
-        }
-        console.log(randomColorString);
-    }
-
-    newColorFind()
-
     useEffect(() => {
         fetch('https://api.github.com/users/henrique-magno-dev/repos', {
             headers: {
@@ -54,7 +22,7 @@ const LastProjects = () => {
     let counter = -1;
     const lastProjects =
         document.getElementById('lastProjectSection')?.childNodes;
-    
+
     return (
         <React.Fragment>
             {data.map((e, i) => {
@@ -106,17 +74,17 @@ const LastProjects = () => {
                                 glareReverse={true}
                                 glareBorderRadius={'1.5rem'}
                             >
-                                <div
+                                <div                                 
                                     id={`lastProjectBoxId-${counter}`}
-                                    className={`projectBoxClass xl-96 relative cursor-pointer rounded-3xl bg-gradient-to-t from-blue-800 to-blue-500 text-white sm:h-32 md:h-48 lg:h-96`}
+                                    className={`projectBoxClass motherDiv xl-96 relative cursor-pointer rounded-3xl bg-gradient-to-t from-blue-800 to-blue-500 text-white sm:h-32 md:h-48 lg:h-96`}
                                 >
                                     <div
                                         className="tituloConteudo h-1/4 text-center 
-                    sm:flex sm:h-2/3 
-                    sm:items-center
-                    sm:justify-center sm:px-5 md:mb-5 
-                    md:px-10 md:pt-10 lg:pt-7 xl:mb-10 xl:pt-10 
-                  "
+                                                   sm:flex sm:h-2/3 
+                                                   sm:items-center
+                                                   sm:justify-center sm:px-5 md:mb-5 
+                                                   md:px-10 md:pt-10 lg:pt-7 xl:mb-10 xl:pt-10 
+                                                 "
                                     >
                                         <h1 className="titulo font-bold capitalize ">
                                             {data[i].name

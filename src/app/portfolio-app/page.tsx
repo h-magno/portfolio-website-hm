@@ -9,6 +9,7 @@ import MainProjects from '../components/main-projects/MainProjects';
 import { useInView } from 'react-intersection-observer';
 import Tilt from 'react-parallax-tilt';
 import { useWindowSize } from 'react-use';
+import videoTemplate from '../../../public/videoTemplate.jpg'
 
 const homeStyle = {
     headlineHM: {
@@ -33,7 +34,7 @@ const Dashboard = () => {
                 className="paddingClamp px-50 sm: container top-0 left-0 mx-auto flex-col-reverse justify-start gap-4 sm:flex sm:gap-2 sm:pt-0 md:flex md:grid-cols-1 md:pt-32 lg:grid lg:grid-cols-2 xl:grid"
                 style={{
                     marginTop: windowWidth <= 768 ? ('100px') : (''),
-                    height: windowWidth <= 1024 ? '' : '82svh'
+                    height: windowWidth <= 1024 ? '' : '85svh'
                 }}
             >
                 <div className="sm:mt-10 md:mt-10 lg:mt-0 lg:pt-14 md:pt-0">
@@ -44,11 +45,15 @@ const Dashboard = () => {
                         tiltMaxAngleY={5}
                         perspective={1000}
                         glareMaxOpacity={0.5}
-                        glareColor={'#001fff'}
+                        glareColor={'red'}
                         glareReverse={true}
                         glareBorderRadius={'1.5rem'}
                     >
                         <div
+                        style={{
+                            backgroundImage: `url('${videoTemplate.src}')`,
+                            backgroundSize: 'cover'
+                        }}
                             className={`${slideRightLeft()} aspect-video  w-full rounded-3xl bg-gray-600`}
                         ></div>{' '}
                     </Tilt>
