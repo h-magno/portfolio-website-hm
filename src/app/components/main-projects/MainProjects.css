@@ -31,8 +31,11 @@
     animation-name: fakeLoading;
     animation-iteration-count: 1;
     animation-duration: 1s;
-    opacity: 0;
+
     animation-fill-mode: forwards;
+    background: rgba(245, 245, 245, 0.016);
+
+    backdrop-filter: blur(4px) !important;
   }
   @keyframes fakeLoading {
     0% {

@@ -1,5 +1,4 @@
-'use client';
-import './globals.css';
+'use client';import './globals.css';
 import Fab from '@mui/material/Fab';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Anek_Telugu } from '@next/font/google';
@@ -10,6 +9,9 @@ import Image from 'next/image';
 import stars from '../../public/stars.jpg';
 import './Navbar.css';
 import { useInView } from 'react-intersection-observer';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const anekTelugu = Anek_Telugu({
     subsets: ['latin'],
@@ -25,18 +27,19 @@ export default function RootLayout({
         threshold: 0
     });
     return (
-        <html lang="pt-br" >
+        <html lang="pt-br">
             <Cursor />
-
 
             <head />
             <div
-                style={{
-                    // backgroundImage: `url('${stars.src}')`,
-                    // backgroundSize: 'cover',
-                    // backgroundPosition: 'center bottom',
-                    // width: '99%'
-                }}
+                style={
+                    {
+                        // backgroundImage: `url('${stars.src}')`,
+                        // backgroundSize: 'cover',
+                        // backgroundPosition: 'center bottom',
+                        // width: '99%'
+                    }
+                }
                 className={`
                     ${
                         downSizeEffect
@@ -45,7 +48,7 @@ export default function RootLayout({
                     }
                     
                 
-                    fixed h-20 w-full`}
+                    fixed h-20 w-[99%]`}
             ></div>
             <div
                 className={`${
@@ -132,11 +135,11 @@ export default function RootLayout({
                 <SettingsIcon />
             </Fab>
             <SmoothScroll />
-            <body className="overflow-x-hidden font-mono text-white ">
-            <div
-                ref={downSizeMenu}
-                className="menuRef absolute top-0 h-1 w-20 "
-            ></div>
+            <body className=" font-mono text-white h-full">
+                <div
+                    ref={downSizeMenu}
+                    className="menuRef absolute top-0 h-1 w-20 "
+                ></div>
                 {children}
             </body>
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
@@ -178,11 +181,17 @@ export default function RootLayout({
                             placeholder="Mensagem"
                             className="input mt-3 h-52 w-full pt-2"
                         />
-                        <div className="mt-3 flex h-20 w-full items-center justify-end">
+                        <div className="mt-3 flex h-20 w-full items-center justify-between">
+                        <div className="h-16 w-52 flex justify-around items-center ">
+                            <GitHubIcon sx={{fontSize: '40px' , color: 'grey', cursor: 'pointer', '&:hover': {color:'lightgrey'} }}/>
+                            <LinkedInIcon sx={{fontSize: '40px' , color: 'grey', cursor: 'pointer', '&:hover': {color:'lightgrey'} }}/>
+                            <YouTubeIcon sx={{fontSize: '40px' , color: 'grey', cursor: 'pointer', '&:hover': {color:'lightgrey'} }}/>
+                        </div>
                             <button className="btn mx-2 w-32 rounded-2xl border-2 border-blue-600 bg-blue-600 bg-opacity-5 font-mono font-extrabold text-blue-600 duration-500  hover:border-blue-600 hover:bg-opacity-10">
-                                Button
+                                Enviar
                             </button>
                         </div>
+                        
                     </form>
                 </label>
             </label>

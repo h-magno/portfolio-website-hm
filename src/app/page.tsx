@@ -16,6 +16,8 @@ import MyCameraRef from './components/react-three-fiber/myCameraRef/MyCameraRef'
 import ReflectorComp from './components/reflector/ReflectorComp';
 import SphereTres from './components/react-three-fiber/sphere3/Sphere3';
 
+
+
 extend(THREE);
 
 export default function Home() {
@@ -46,7 +48,7 @@ export default function Home() {
         style={{ position: 'absolute', top: 0, zIndex: '90' }}
       >
         <div style={{ height: '100vh', width: '100vw' }}>
-          {/* <Canvas
+          <Canvas
             id="bg"
             camera={{
               fov: 20,
@@ -77,7 +79,7 @@ export default function Home() {
             ></ReflectorComp>
             <Draggable />
             <OrbitControls />
-          </Canvas> */}
+          </Canvas>
         </div>
       </div>
     </>

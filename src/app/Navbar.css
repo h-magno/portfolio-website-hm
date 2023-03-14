@@ -1,5 +1,10 @@
 html{
-    background: #000010 !important;
+    background: tomato !important ;
+    /* background: #000010 !important; */
+}
+
+body {
+    height: 100vh !important;
 }
 
 .menu-after {

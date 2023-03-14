@@ -1,12 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100;200;300;400;500;600;700;800&display=swap');
-
 @font-face {
-  font-family: 'Anek Telugu', sans-serif;
-  src: url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100;200;300;400;500;600;700;800&display=swap');
+    font-family: 'Anek Telugu', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100;200;300;400;500;600;700;800&display=swap');
 }
 
-body {
-  height: 100vh;
+
+
+.shuffleText {
+    animation: shuffleText steps(7) 7s ;
+    animation-iteration-count: infinite;
+    animation-delay: 1.5s;
+
+}
+.shuffleText2 {
+    animation: shuffleText2 steps(7) 5s ;
+    animation-iteration-count: infinite;
+    animation-delay: 3.5s;
+
+}
+.shuffleTitle {
+    animation: shuffleTitle steps(7) 6s ;
+    animation-iteration-count: infinite;
+
+}
+@keyframes shuffleText2 {
+    0% {
+       transform: translateY(0px);
+    }
+    10% {
+        transform: translateY(-224px);
+    }
+    10.1% {
+        transform: translateY(0px);
+    }
+    
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+@keyframes shuffleText {
+    0% {
+       transform: translateY(0px);
+    }
+    10% {
+        transform: translateY(-280px);
+    }
+    10.1% {
+        transform: translateY(0px);
+    }
+    
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+@keyframes shuffleTitle {
+    0% {
+       transform: translateY(0px);
+    }
+    10% {
+        transform: translateY(-784px);
+    }
+    10.1% {
+        transform: translateY(0px);
+    }
+    
+    100%{
+        transform: translateY(0px);
+    }
+
 }
 
 
@@ -22,49 +85,47 @@ body {
   }
 } */
 
-
-
 * {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
 
 .downSons *:hover {
-  transform: scale(0.95) !;
+    transform: scale(0.95) !;
 }
 
 .mainProjects {
-  animation-name: fakeLoading;
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  opacity: 0;
-  animation-fill-mode: forwards;
+    animation-name: fakeLoading;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
 }
 
 .paddingClamp {
-  padding-inline: min(60px, 2.5vw);
+    padding-inline: min(60px, 2.5vw);
 }
 
 @keyframes fakeLoading {
-  0% {
-    opacity: 100%;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
-  }
-  100% {
-    opacity: 100%;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
-  }
+    0% {
+        opacity: 100%;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+    }
+    100% {
+        opacity: 100%;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+    }
 }
 
 .projectBox:hover,
 .mainProjects:hover {
-  transform: scale(1.02) !important;
-  transition-duration: 0.2s !important;
+    transform: scale(1.02) !important;
+    transition-duration: 0.2s !important;
 }
