@@ -6,7 +6,7 @@ import Sphere2 from '../components/react-three-fiber/sphere2/Sphere2';
 import ReflectorComp from '../components/reflector/ReflectorComp';
 import Lastprojects from '../components/last-projects/LastProjects';
 import MainProjects from '../components/main-projects/MainProjects';
-import NewMainProjects from '../components/new-main-projects/NewMainProjects'
+import NewMainProjects from '../components/new-main-projects/NewMainProjects';
 import { useInView } from 'react-intersection-observer';
 import Tilt from 'react-parallax-tilt';
 import { useWindowSize } from 'react-use';
@@ -21,23 +21,24 @@ const Dashboard = () => {
 
     return (
         <React.Fragment>
+
             <div
-                className="paddingClamp  px-50 sm: container top-0 left-0 mx-auto flex-col-reverse justify-start gap-4 sm:flex sm:gap-2 sm:pt-0 md:flex md:grid-cols-1 md:pt-32 lg:grid lg:grid-cols-2 xl:grid"
+                className="paddingClamp sm:flex sm:flex-col-reverse md:flex md:flex-col-reverse md:pt-32 lg:grid lg:grid-cols-2  lg:pt-0  "
                 style={{
                     marginTop: windowWidth <= 768 ? '100px' : '',
                     height: windowWidth <= 1024 ? '' : '95svh'
                 }}
             >
-                <div
-                    className={`slideRightLeft sm:mt-10 md:mt-10 md:pt-0 lg:mt-0 lg:pt-14`}
+               <div
+                    className={` slideRightLeft  lg:my-0 md:paddingClamp sm:my-20 md:m-auto md:my-10 md:w-4/5 lg:flex lg:justify-center lg:pt-24 lg:items-center lg:w-full xl:w-full 2xl:w-[800px]`}
                 >
-                    <VideoTitle />
+                        <VideoTitle />
                 </div>
 
-                <div className="flex items-center justify-center align-middle md:pl-0 lg:pl-10 ">
+                <div className=" flex w-full items-center justify-center align-middle md:pl-0 lg:pl-10 ">
                     <header
                         ref={refTitle}
-                        className={`slideLeftRight relative z-10 flex flex-col justify-center text-center md:mt-0 lg:-mt-24 xl:-mt-32`}
+                        className={`slideLeftRight relative z-10 flex flex-col justify-center text-center`}
                     >
                         <HomeTitle />
                     </header>
@@ -45,20 +46,20 @@ const Dashboard = () => {
             </div>
 
             <div className=" z-10 mb-5 flex h-16 items-center justify-center  ">
-                <span className="absolute z-10">ÚLTIMOS PROJETOS</span>
+                <span className="absolute z-10">PROJETOS PRINCIPAIS</span>
             </div>
             <section
                 id="mainProjectSection"
-                className="paddingClamp mb-10 container mx-auto grid grid-cols-1 gap-4 sm:grid-cols-1 sm:gap-2"
+                className="paddingClamp 2xl:px-52 2lg:px-0 container mx-auto mb-10 grid grid-cols-1 gap-4 sm:grid-cols-1 sm:gap-2"
             >
-                <NewMainProjects/>
+                <NewMainProjects />
             </section>
             <div className=" z-10 my-5 flex h-16 items-center justify-center  ">
                 <span className="absolute z-10">ÚLTIMOS PROJETOS</span>
             </div>
             <section
                 id="mainProjectSection"
-                className="paddingClamp mb-10 md:px-50 container mx-auto grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-2"
+                className="paddingClamp xl:px-52 2lg:px-0 lg:px-0 md:px-50 container mx-auto mb-10 grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-2"
             >
                 <MainProjects />
             </section>

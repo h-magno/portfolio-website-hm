@@ -60,7 +60,7 @@ export default function RootLayout({
                         <ul className="menu-after">
                             <li className="cursor-pointer py-10 text-base ">
                                 <Link href="/portfolio-app">
-                                    <p className="text-lime-400">
+                                    <p className="text-green-500">
                                         .
                                         <span className="text-white">
                                             Portfólio
@@ -71,7 +71,7 @@ export default function RootLayout({
                             </li>
                             <li className="ml-3 cursor-pointer py-10 text-base ">
                                 <Link href="/skills">
-                                    <p className="text-lime-400">
+                                    <p className="text-green-500">
                                         .
                                         <span className="text-white">
                                             Skills
@@ -82,7 +82,7 @@ export default function RootLayout({
                             </li>
                             <li className="ml-3 cursor-pointer py-10 text-base ">
                                 <Link href="/about-me">
-                                    <p className="text-lime-400">
+                                    <p className="text-green-500">
                                         .
                                         <span className="text-white">
                                             Sobremim
@@ -95,7 +95,7 @@ export default function RootLayout({
                     </div>
                     <div className="md:hidden lg:hidden xl:flex ">
                         <button
-                            className={`mx-2  rounded-2xl border-2 border-blue-600 bg-blue-600 bg-opacity-5 font-mono  font-extrabold text-blue-600 duration-500  hover:bg-opacity-10 ${
+                            className={`mx-2  rounded-2xl border border-blue-600 bg-blue-600 bg-opacity-5 font-mono  font-extrabold text-blue-600 duration-500  hover:bg-opacity-10 ${
                                 downSizeEffect
                                     ? 'h-12 w-44 text-base'
                                     : 'h-10 w-32 text-sm'
@@ -105,7 +105,7 @@ export default function RootLayout({
                         </button>
                         <label
                             htmlFor="my-modal-4"
-                            className={`btn-navbar2 mx-2 flex cursor-pointer items-center justify-center rounded-2xl border-2 border-lime-400 bg-lime-400 bg-opacity-5 font-mono font-extrabold text-lime-400  duration-500 hover:bg-opacity-10 ${
+                            className={`btn-navbar2 mx-2 flex cursor-pointer items-center justify-center rounded-2xl border border-green-500 bg-green-500 bg-opacity-5 font-mono font-extrabold text-green-500  duration-500 hover:bg-opacity-10 ${
                                 downSizeEffect
                                     ? 'h-12 w-44 text-base'
                                     : 'h-10 w-32 text-sm'
@@ -117,13 +117,13 @@ export default function RootLayout({
                     <div className="md:flex lg:flex xl:hidden">
                         <button
                             className={`mx-2 h-10 w-32
-                  rounded-2xl  border-2 border-blue-600 bg-blue-600 bg-opacity-5 font-mono text-sm  font-extrabold text-blue-600 duration-500  hover:bg-opacity-10`}
+                  rounded-2xl  border border-blue-600 bg-blue-600 bg-opacity-5 font-mono text-sm  font-extrabold text-blue-600 duration-500  hover:bg-opacity-10`}
                         >
                             CURRÍCULO PDF
                         </button>
                         <label
                             htmlFor="my-modal-4"
-                            className={`btn-navbar2 mx-2 flex h-10 w-32 cursor-pointer items-center  justify-center  rounded-2xl border-2 border-lime-400 bg-lime-400 bg-opacity-5 font-mono text-sm font-extrabold text-lime-400  duration-500 hover:bg-opacity-10 `}
+                            className={`btn-navbar2 mx-2 flex h-10 w-32 cursor-pointer items-center  justify-center  rounded-2xl border border-green-500 bg-green-500 bg-opacity-5 font-mono text-sm font-extrabold text-green-500  duration-500 hover:bg-opacity-10 `}
                         >
                             CONTATO
                         </label>
@@ -187,7 +187,7 @@ export default function RootLayout({
                             <LinkedInIcon sx={{fontSize: '40px' , color: 'grey', cursor: 'pointer', '&:hover': {color:'lightgrey'} }}/>
                             <YouTubeIcon sx={{fontSize: '40px' , color: 'grey', cursor: 'pointer', '&:hover': {color:'lightgrey'} }}/>
                         </div>
-                            <button className="btn mx-2 w-32 rounded-2xl border-2 border-blue-600 bg-blue-600 bg-opacity-5 font-mono font-extrabold text-blue-600 duration-500  hover:border-blue-600 hover:bg-opacity-10">
+                            <button className="btn mx-2 w-32 rounded-2xl border border-blue-600 bg-blue-600 bg-opacity-5 font-mono font-extrabold text-blue-600 duration-500  hover:border-blue-600 hover:bg-opacity-10">
                                 Enviar
                             </button>
                         </div>

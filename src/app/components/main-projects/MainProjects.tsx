@@ -105,7 +105,7 @@ const MainProjects = () => {
                                         <div className="w-7/12 pl-5">
                                             <div
                                                 tabIndex={0}
-                                                className=" collapse-arrow collapse rounded-3xl border-2 border-lime-600 bg-gray-900 text-white"
+                                                className=" collapse-arrow collapse rounded-3xl border-2 border-gray-600 bg-gray-900 text-white"
                                             >
                                                 <div className="text-medium text-white-400 collapse-title font-thin">
                                                     Recursos

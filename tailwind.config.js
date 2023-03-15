@@ -6,6 +6,8 @@ module.exports = {
       screens: { 
         'sm': {'max': '768px'}, 
         'xs': {'max': '600px'}, 
+        '2lg': {'max': '1723px'}, 
+        '2xl': {'min': '1723px'}, 
        },
       colors: {
         lime: {

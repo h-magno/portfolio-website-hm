@@ -1,6 +1,7 @@
 html{
     background: tomato !important ;
-    /* background: #000010 !important; */
+    background: #000010 !important;
+    overflow-x: hidden;
 }
 
 body {
@@ -114,8 +115,8 @@ body {
 }
 
 .btn-navbar2:hover {
-    border-color: yellowgreen;
-    background-color: rgba(153, 205, 50, 0.105);
+    border-color: rgb(84, 197, 124);
+    background-color: rgba(67, 184, 77, 0.105);
 }
 
 
