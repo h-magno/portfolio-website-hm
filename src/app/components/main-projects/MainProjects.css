@@ -17,25 +17,15 @@
   font-size: var(--step--3)!important;
 }
 
-#projectBoxId-1 {
- animation-delay: 0.5s;
-}
-#projectBoxId-2 {
- animation-delay: 1s;
-}
-
-
 
 
 .projectBoxClass {
     animation-name: fakeLoading;
     animation-iteration-count: 1;
     animation-duration: 1s;
-
     animation-fill-mode: forwards;
-    background: rgba(245, 245, 245, 0.016);
-
-    backdrop-filter: blur(4px) !important;
+    background: rgba(8, 25, 65, 0.422);
+    backdrop-filter: blur(2px);
   }
   @keyframes fakeLoading {
     0% {

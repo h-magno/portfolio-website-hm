@@ -1,4 +1,4 @@
-html{
+html {
     background: tomato !important ;
     background: #000010 !important;
     overflow-x: hidden;
@@ -9,7 +9,6 @@ body {
 }
 
 .menu-after {
-    /* color: royalblue; */
     height: 40px;
     backdrop-filter: blur(15px) !important;
     display: flex;
@@ -20,104 +19,117 @@ body {
     text-transform: uppercase;
 }
 
-:root {
-    --tituloCapa: clamp(4.06rem, calc(3.30rem + 3.80vw), 6.25rem);
-    --textoCapa: clamp(1.25rem, calc(1.03rem + 1.09vw), 1.88rem);
-    --textoCapa2: clamp(0.87rem, calc(0.75rem + 0.58vw), 1.20rem);
-   }
-   
-   .textoCapa {
-     font-size: var(--textoCapa);
-   }
-   .textoCapa2 {
-     font-size: var(--textoCapa2);
-   }
-   
-   .tituloCapa {
-     font-family: 'Anek Telugu';
-     font-size: var(--tituloCapa) !important;
-     margin-top: '10px';
-   }
-   
-   .slideLeftRight {
-     animation-name: slideLeftRight;
-     animation-duration: 1.5s;
-     animation-fill-mode: forwards;
-     animation-iteration-count: 1;
-   }
-   
-   .slideRightLeft {
-     animation-name: slideRightLeft;
-     animation-duration: 1.5s;
-     animation-fill-mode: forwards;
-     animation-iteration-count: 1;
-   }
-   
-   
-   .menuAnimation > div {
-     animation-name: menuEffect;
-     animation-duration: 1.5s;
-     animation-fill-mode: forwards;
-     animation-iteration-count: 1;
-   }
+/* .menu-bottom {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    background: rgba(72, 1, 143, 0.422);
+    backdrop-filter: blur(10px);
+}
+.menu-bottom::before {
+    content: '';
+    position: absolute;
+    right: -80px;
+    top: -80px;
+    height: 190px;
+    width: 240px;
 
-   .bg-navbar-slide {
+
+} */
+
+.menu-dois {
+    width: 99.5%;
+    background: rgba(8, 25, 65, 0.422);
+    backdrop-filter: blur(10px);
+    border-radius: 0px 0px 20px 20x;
+}
+
+:root {
+    --tituloCapa: clamp(4.06rem, calc(3.3rem + 3.8vw), 6.25rem);
+    --textoCapa: clamp(1.25rem, calc(1.03rem + 1.09vw), 1.88rem);
+    --textoCapa2: clamp(0.87rem, calc(0.75rem + 0.58vw), 1.2rem);
+}
+
+.textoCapa {
+    font-size: var(--textoCapa);
+}
+.textoCapa2 {
+    font-size: var(--textoCapa2);
+}
+
+.tituloCapa {
+    font-family: 'Anek Telugu';
+    font-size: var(--tituloCapa) !important;
+    margin-top: '10px';
+}
+
+.slideLeftRight {
+    animation-name: slideLeftRight;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.slideRightLeft {
+    animation-name: slideRightLeft;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.menuAnimation > div {
+    animation-name: menuEffect;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.bg-navbar-slide {
     animation-name: bgNavbarSlide;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-   }
-   
-   
-   
-   @keyframes bgNavbarSlide {
-     0% {
-         opacity: 0;
-         transform: translateY(-80px);
-        }
-        100% {
-         opacity: 100;
-         display: block !important;
-         transform: translateY(0px);
-   
-     }
-   }
-   @keyframes slideLeftRight {
-     0% {
-       opacity: 0;
-       display: block !important;
-       transform: translateX(200px);
-     }
-     100% {
-       opacity: 100;
-       transform: translateX(0px);
-   
-     }
-   }
-   
-   @keyframes slideRightLeft {
-     0% {
-       opacity: 0;
-       display: block !important;
-       transform: translateX(-200px);
-     }
-     100% {
-       opacity: 100;
-       transform: translateX(0px);
-   
-     }
-   }
+}
 
+@keyframes bgNavbarSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    100% {
+        opacity: 100;
+        display: block !important;
+        transform: translateY(0px);
+    }
+}
+@keyframes slideLeftRight {
+    0% {
+        opacity: 0;
+        display: block !important;
+        transform: translateX(200px);
+    }
+    100% {
+        opacity: 100;
+        transform: translateX(0px);
+    }
+}
 
-.navWidth  {
-    width: 99%;
+@keyframes slideRightLeft {
+    0% {
+        opacity: 0;
+        display: block !important;
+        transform: translateX(-200px);
+    }
+    100% {
+        opacity: 100;
+        transform: translateX(0px);
+    }
+}
+
+.navWidth {
+    width: 99.5%;
     background-image: url('');
 }
-
-.btn-navbar2:hover {
-    border-color: rgb(84, 197, 124);
-    background-color: rgba(67, 184, 77, 0.105);
-}
-
 
 

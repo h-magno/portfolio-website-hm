@@ -1,7 +1,34 @@
 
+.porjectBoxAnimation::after {
+    content: '';
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 100%;
+    
+}
+.porjectBoxAnimation:hover {
+    animation-name: projectBoxImgAnimation;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1 ;
+    cursor: pointer;
+}
+
+@keyframes projectBoxImgAnimation {
+    0%{
+        transform: translateY(0px);
+
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
 
 
 .newMainBox {
-    background: rgba(245, 245, 245, 0.006);
-    backdrop-filter: blur(6px);
+    background: rgba(8, 25, 65, 0.422);
+    backdrop-filter: blur(2px);
 }

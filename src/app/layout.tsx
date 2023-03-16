@@ -32,19 +32,12 @@ export default function RootLayout({
 
             <head />
             <div
-                style={
-                    {
-                        // backgroundImage: `url('${stars.src}')`,
-                        // backgroundSize: 'cover',
-                        // backgroundPosition: 'center bottom',
-                        // width: '99%'
-                    }
-                }
+
                 className={`
                     ${
                         downSizeEffect
                             ? ' -top-20 bg-opacity-0'
-                            : 'bg-navbar-slide top-0 z-50 bg-black bg-opacity-100'
+                            : 'bg-navbar-slide top-0 z-50 menu-dois bg-opacity-100'
                     }
                     
                 
@@ -129,6 +122,10 @@ export default function RootLayout({
                         </label>
                     </div>
                 </div>
+            </div>
+
+            <div className='menu-bottom'>
+                
             </div>
 
             <Fab className="fixed  bottom-10 right-10 bg-blue-50">

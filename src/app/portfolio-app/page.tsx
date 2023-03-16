@@ -50,7 +50,7 @@ const Dashboard = () => {
             </div>
             <section
                 id="mainProjectSection"
-                className="paddingClamp 2xl:px-52 2lg:px-0 container mx-auto mb-10 grid grid-cols-1 gap-4 sm:grid-cols-1 sm:gap-2"
+                className="paddingClamp 2xl:px-52 2lg:px-0 container mx-auto mb-10 grid grid-cols-1 gap-4 sm:grid-cols-1 "
             >
                 <NewMainProjects />
             </section>
@@ -59,33 +59,18 @@ const Dashboard = () => {
             </div>
             <section
                 id="mainProjectSection"
-                className="paddingClamp xl:px-52 2lg:px-0 lg:px-0 md:px-50 container mx-auto mb-10 grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-2"
+                className="paddingClamp xl:px-52 2lg:px-0 lg:px-0 md:px-50 container mx-auto mb-10 grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-10"
             >
                 <MainProjects />
             </section>
 
-            {/* <div
-                className={`z-10 my-5 flex h-16 items-center justify-center sm:mb-10`}
-            >
-                ÚLTIMOS PROJETOS
-            </div> */}
-            {/* <section
-                id="lastProjectSection"
-                className="paddingClamp container mx-auto grid grid-cols-3 gap-4 sm:gap-2"
-            >
-                <Lastprojects />
-            </section> */}
-
-            {/* <div className=" z-10 my-5 flex h-16  items-center justify-center">
-                MAIS PROJETOS
-            </div>
-            <div className=" z-10 my-5 flex h-96 w-full items-center justify-center"></div> */}
+         
             <Footer />
             <div
                 style={{ height: '200vh' }}
                 className="absolute top-0 -z-10 w-full"
             >
-                <HomeBG />
+                {/* <HomeBG /> */}
             </div>
         </React.Fragment>
     );
