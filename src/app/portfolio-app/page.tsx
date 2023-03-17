@@ -1,5 +1,4 @@
-'use client';
-import React, { useEffect, useState, useRef, Suspense } from 'react';
+'use client';import React, { useEffect, useState, useRef, Suspense } from 'react';
 import './index.css';
 import { Canvas } from '@react-three/fiber';
 import MyCameraRef from '../components/react-three-fiber/myCameraRef/MyCameraRef';
@@ -20,8 +19,6 @@ const Dashboard = () => {
     const { ref: refTitle, inView: titleEffect } = useInView();
     const { width: windowWidth, height: windowHeigh } = useWindowSize();
 
-
-    
     return (
         <React.Fragment>
             <div
@@ -34,8 +31,18 @@ const Dashboard = () => {
                 <div
                     className={` slideRightLeft  md:paddingClamp sm:my-20 md:m-auto md:my-10 md:w-4/5 lg:my-0 lg:flex lg:w-full lg:items-center lg:justify-center lg:pt-16 xl:w-full 2xl:w-[800px]`}
                 >
-                    <VideoTitle />
-
+                    <Tilt
+                        glareEnable={true}
+                        tiltMaxAngleX={5}
+                        tiltMaxAngleY={5}
+                        perspective={1000}
+                        glareMaxOpacity={0.1}
+                        glareColor={'#EBEAF0'}
+                        glareReverse={true}
+                        glareBorderRadius={'1.5rem'}
+                    >
+                        <VideoTitle />
+                    </Tilt>
                 </div>
 
                 <div className=" flex w-full items-center justify-center align-middle md:pl-0 lg:pl-10 ">
@@ -66,7 +73,6 @@ const Dashboard = () => {
             >
                 <MainProjects />
             </section>
-
 
             <Footer />
             <div
