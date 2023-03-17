@@ -3,6 +3,7 @@ import videoTemplate from '../../../../../public/videoTemplate.jpg';
 
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowSharpIcon from '@mui/icons-material/PlayArrowSharp';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpSharpIcon from '@mui/icons-material/VolumeUpSharp';
 
 const videoURL = 'https://www.youtube.com/watch?v=ZaYvwn9nBD4&ab_channel=Alura';
@@ -12,12 +13,10 @@ const usePlayerState = (videoPlayerRef: any) => {
         playing: true,
         muted: true,
         percentage: 0.0,
-        volume: 0
+        volume: 100
     });
 
     useEffect(() => {
-        console.log(videoPlayerRef.current.volume);
-
         playerState.playing
             ? videoPlayerRef.current.play()
             : videoPlayerRef.current.pause();
@@ -52,12 +51,29 @@ const usePlayerState = (videoPlayerRef: any) => {
         });
     };
 
+    const handleMute = () => {
+        setPlayerState({
+            ...playerState,
+            muted: !playerState.muted
+        });
+    };
+
+    const handleChangerVolumePercentage = (event: any) => {
+        const currentVolumeValue = event.target.value;
+        videoPlayerRef.current.volume = currentVolumeValue / 100;
+        setPlayerState({
+            ...playerState,
+            volume: currentVolumeValue
+        });
+    };
+
     return {
         playerState,
-
+        handleMute,
         toggleVideoPlay,
         handleTimeUpdate,
-        handleChangerVideoPercentage
+        handleChangerVideoPercentage,
+        handleChangerVolumePercentage
     };
 };
 
@@ -65,27 +81,27 @@ const VideoTitle = () => {
     let videoPlayerRef = useRef<any>(null);
     const {
         playerState,
-
+        handleMute,
         toggleVideoPlay,
         handleTimeUpdate,
-        handleChangerVideoPercentage
+        handleChangerVideoPercentage,
+        handleChangerVolumePercentage
     } = usePlayerState(videoPlayerRef);
     return (
         <div className="videoWrapper aspect-video w-full rounded-3xl  ">
             <video
                 loop
                 autoPlay
-                muted
+                muted={playerState.muted}
                 ref={videoPlayerRef}
                 src={'homeVideoTestDois.mp4'}
-                // poster="https://mir-s3-cdn-cf.behance.net/projects/404/b2978d144842697.Y3JvcCwyNzYxLDIxNjAsNTQwLDA.png"
                 onTimeUpdate={handleTimeUpdate}
                 className="h-full w-full rounded-t-3xl"
             />
 
             <div className="controls videoBG flex h-14 items-center  rounded-b-3xl">
                 <button
-                    className="h-full w-1/5 rounded-bl-3xl duration-500 mr-3 hover:bg-blue-800 hover:bg-opacity-5 "
+                    className="h-full w-1/5 rounded-bl-3xl "
                     onClick={toggleVideoPlay}
                 >
                     {playerState.playing ? (
@@ -94,7 +110,25 @@ const VideoTitle = () => {
                         <PlayArrowSharpIcon className="text-white" />
                     )}
                 </button>
+                <div className="volume flex h-full w-1/5 items-center ">
+                    <div
+                        onClick={handleMute}
+                        className="mr-1 flex  h-full w-1/5 items-center"
+                    >
+                       {
+                        playerState.muted ? <VolumeOffIcon/> : <VolumeUpSharpIcon/>
+                       }
+                    </div>
 
+                    <input
+                        onChange={handleChangerVolumePercentage}
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={playerState.volume}
+                        className="range range-success range-xs w-3/5 bg-blue-800 "
+                    />
+                </div>
 
                 <input
                     onChange={handleChangerVideoPercentage}
