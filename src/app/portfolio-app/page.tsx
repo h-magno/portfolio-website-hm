@@ -1,4 +1,5 @@
-'use client';import React, { useEffect, useState, useRef, Suspense } from 'react';
+'use client';
+import React, { useEffect, useState, useRef, Suspense } from 'react';
 import './index.css';
 import { Canvas } from '@react-three/fiber';
 import MyCameraRef from '../components/react-three-fiber/myCameraRef/MyCameraRef';
@@ -19,9 +20,10 @@ const Dashboard = () => {
     const { ref: refTitle, inView: titleEffect } = useInView();
     const { width: windowWidth, height: windowHeigh } = useWindowSize();
 
+
+    
     return (
         <React.Fragment>
-
             <div
                 className="paddingClamp sm:flex sm:flex-col-reverse md:flex md:flex-col-reverse md:pt-32 lg:grid lg:grid-cols-2  lg:pt-0  "
                 style={{
@@ -29,10 +31,11 @@ const Dashboard = () => {
                     height: windowWidth <= 1024 ? '' : '95svh'
                 }}
             >
-               <div
-                    className={` slideRightLeft  lg:my-0 md:paddingClamp sm:my-20 md:m-auto md:my-10 md:w-4/5 lg:flex lg:justify-center lg:pt-24 lg:items-center lg:w-full xl:w-full 2xl:w-[800px]`}
+                <div
+                    className={` slideRightLeft  md:paddingClamp sm:my-20 md:m-auto md:my-10 md:w-4/5 lg:my-0 lg:flex lg:w-full lg:items-center lg:justify-center lg:pt-16 xl:w-full 2xl:w-[800px]`}
                 >
-                        <VideoTitle />
+                    <VideoTitle />
+
                 </div>
 
                 <div className=" flex w-full items-center justify-center align-middle md:pl-0 lg:pl-10 ">
@@ -50,7 +53,7 @@ const Dashboard = () => {
             </div>
             <section
                 id="mainProjectSection"
-                className="paddingClamp 2xl:px-52 2lg:px-0 container mx-auto mb-10 grid grid-cols-1 gap-4 sm:grid-cols-1 "
+                className="paddingClamp container mx-auto mb-10 grid grid-cols-1 gap-4 sm:grid-cols-1 2xl:px-52 2lg:px-0 "
             >
                 <NewMainProjects />
             </section>
@@ -59,18 +62,18 @@ const Dashboard = () => {
             </div>
             <section
                 id="mainProjectSection"
-                className="paddingClamp xl:px-52 2lg:px-0 lg:px-0 md:px-50 container mx-auto mb-10 grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-10"
+                className="paddingClamp md:px-50 container mx-auto mb-10 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-2 lg:px-0 xl:px-52 2lg:px-0 "
             >
                 <MainProjects />
             </section>
 
-         
+
             <Footer />
             <div
                 style={{ height: '200vh' }}
                 className="absolute top-0 -z-10 w-full"
             >
-                {/* <HomeBG /> */}
+                <HomeBG />
             </div>
         </React.Fragment>
     );

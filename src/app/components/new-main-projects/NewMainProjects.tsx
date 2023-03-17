@@ -38,9 +38,10 @@ const MainProjects = () => {
     return (
         <React.Fragment>
             {data.map((e, i) => {
-                console.log(data[i].homepage);
+                
                 if (data[i].stargazers_count == '0') {
                     return (
+                        
                         <Tilt
                             glareEnable={true}
                             tiltMaxAngleX={2}
@@ -57,16 +58,15 @@ const MainProjects = () => {
                             >
                                 <div className=" box-border sm:h-1/2 sm:w-full sm:px-10 sm:py-2 md:h-1/2 md:w-full md:py-2 md:px-10 lg:flex lg:h-full lg:w-1/2 lg:items-center lg:justify-center">
                                     <div className="md: rounded-3xl border border-gray-800 bg-gray-500 sm:m-auto sm:aspect-video sm:h-full sm:w-full md:m-auto  md:aspect-video md:h-full lg:aspect-square lg:h-[90%]">
-                                        <div
-                                            onClick={() =>
-                                                router.push(`/skills`)
-                                            }
+                                        <Link
+                                        href={`${data[i].homepage}`}
+                                          
                                             style={{
                                                 backgroundImage: `url('${bgUrl(
                                                     i
                                                 )}')`,
                                                 backgroundSize: 'cover'
-                                            }}
+                                             }}
                                             className=" relative flex h-full w-full items-center justify-center overflow-y-hidden rounded-3xl"
                                         >
                                             <img
@@ -74,7 +74,7 @@ const MainProjects = () => {
                                                 alt="Picture of the project"
                                                 className="porjectBoxAnimation absolute top-0 flex items-center justify-center"
                                             />
-                                        </div>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className=" sm:h-1/2 sm:w-full md:h-1/2 md:w-full lg:flex lg:h-full lg:w-1/2  lg:items-center lg:justify-center lg:pr-10">
@@ -96,7 +96,7 @@ const MainProjects = () => {
                                                     {data[i].topics.map(
                                                         (e: Array<string>) => {
                                                             return (
-                                                                <div className="badge ml-1">
+                                                                <div className="badge text-white border-gray-800 bg-gray-600 ml-1">
                                                                     #{e}
                                                                 </div>
                                                             );
@@ -122,7 +122,7 @@ const MainProjects = () => {
                                                 href={`${data[i].homepage}`}
                                                 className=" w-1/2 rounded-2xl border border-green-600 bg-green-600 bg-opacity-5 text-center font-black text-green-600 duration-500 hover:bg-opacity-10  sm:py-3 md:py-3"
                                             >
-                                                Live Demo
+                                                Demo
                                             </Link>
                                         </div>
                                     </div>

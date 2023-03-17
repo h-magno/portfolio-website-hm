@@ -40,7 +40,7 @@ const HomeTitle = () => {
             <div className="sm:static md:hidden">
                 <div className={`-mb-9 flex flex-col`}>
                     <span className={`textoCapa font-extralight`}>
-                        <span className="text-lime-400">Olá,</span> bem-vindo ao
+                        <span className="text-green-500">Olá,</span> bem-vindo ao
                         meu web
                     </span>
                     <span className={`tituloCapa font-extrabold`}>

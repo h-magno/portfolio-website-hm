@@ -74,7 +74,7 @@ const LastProjects = () => {
                                 glareReverse={true}
                                 glareBorderRadius={'1.5rem'}
                             >
-                                <div                                 
+                                <div
                                     id={`lastProjectBoxId-${counter}`}
                                     className={`projectBoxClass xl-96 relative cursor-pointer rounded-3xl bg-gradient-to-t from-blue-800 to-blue-500 text-white sm:h-32 md:h-48 lg:h-96`}
                                 >

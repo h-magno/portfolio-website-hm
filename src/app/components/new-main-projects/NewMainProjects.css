@@ -26,9 +26,9 @@
         transform: translateY(-100%);
     }
 }
+ 
 
-
-.newMainBox {
+.newMainBox, .videoBG {
     background: rgba(8, 25, 65, 0.422);
     backdrop-filter: blur(2px);
 }
