@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { extend, useThree } from "@react-three/fiber";
-import { DragControls } from "three/examples/jsm/controls/DragControls";
+import React, { useEffect, useRef, useState } from 'react';
+import { extend, useThree } from '@react-three/fiber';
+import { DragControls } from 'three/examples/jsm/controls/DragControls';
 
 extend({ DragControls });
 
@@ -14,10 +14,10 @@ function Draggable(props) {
   }, [groupRef]);
 
   useEffect(() => {
-    controlsRef.current.addEventListener("hoveron", () => {
+    controlsRef.current.addEventListener('hoveron', () => {
       scene.orbitControls.enabled = false;
     });
-    controlsRef.current.addEventListener("hoveroff", () => {
+    controlsRef.current.addEventListener('hoveroff', () => {
       scene.orbitControls.enabled = true;
     });
   }, [objects]);

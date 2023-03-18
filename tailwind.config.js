@@ -5,19 +5,19 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          success: "#16a34a",
-        },
-      },
-    ],
+          success: '#16a34a'
+        }
+      }
+    ]
   },
   theme: {
     extend: {
-      screens: { 
-        'sm': {'max': '768px'}, 
-        'xs': {'max': '600px'}, 
-        '2lg': {'max': '1723px'}, 
-        '2xl': {'min': '1723px'}, 
-       },
+      screens: {
+        sm: { max: '768px' },
+        xs: { max: '600px' },
+        '2lg': { max: '1723px' },
+        '2xl': { min: '1723px' }
+      },
       colors: {
         lime: {
           50: 'rgb(247 254 231)',
@@ -35,4 +35,4 @@ module.exports = {
     }
   },
   plugins: [require('daisyui')]
-};
+}

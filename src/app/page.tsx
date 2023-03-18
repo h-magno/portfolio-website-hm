@@ -1,22 +1,20 @@
 'use client';
-import Image from 'next/image';
-import { useEffect, Suspense, useRef, useState } from 'react';
+
+import { Suspense } from 'react';
 
 import { Canvas, extend } from '@react-three/fiber';
-import Floor from './components/react-three-fiber/floor/Floor';
-import Sphere from './components/react-three-fiber/sphere/Sphere';
-import Sphere2 from './components/react-three-fiber/sphere2/Sphere2';
-import LightBulb from './components/react-three-fiber/light-bulb/LightBulb';
-import OrbitControls from './components/react-three-fiber/orbit-controls/OrbitControls';
-import Draggable from '../app/components/react-three-fiber/draggable/Draggable';
+
 import * as THREE from 'three';
-// import Navbar from './components/navbar/Navbar';
-import { Reflector } from '@react-three/drei';
+import Sphere2 from './components/react-three-fiber/sphere2/Sphere2';
+import OrbitControls from './components/react-three-fiber/orbit-controls/OrbitControls';
+import Draggable from './components/react-three-fiber/draggable/Draggable';
 import MyCameraRef from './components/react-three-fiber/myCameraRef/MyCameraRef';
 import ReflectorComp from './components/reflector/ReflectorComp';
-import SphereTres from './components/react-three-fiber/sphere3/Sphere3';
 
-
+// ! TESTANDO BETTER COMMENTS - não use
+// * TESTANDO BETTER COMMENTS - importante
+// ? TESTANDO BETTER COMMENTS? - questão
+// TODO: Testando better comments - to do
 
 extend(THREE);
 
@@ -56,27 +54,24 @@ export default function Home() {
                 document.documentElement.clientWidth <= 912
                   ? [7.755644336365776, 5.1526787091636335, 6.999997432913748]
                   : document.documentElement.clientWidth <= 1090
-                  ? [8, 5.8, 8.2]
-                  : [7.506911085205941, 5.1183933233551, 7.074502693421444]
+                    ? [8, 5.8, 8.2]
+                    : [7.506911085205941, 5.1183933233551, 7.074502693421444],
             }}
           >
             <MyCameraRef />
-            <ambientLight color={'white'} intensity={0.5} />
+            <ambientLight color="white" intensity={0.5} />
             <pointLight color="blue" position={[5, 5.4, 6]} intensity={5} />
             <axesHelper args={[10]} />
 
+            <Suspense fallback={null}>
+              <Sphere2 position={[7, 4.4, 6]} rotation-x={1} />
+            </Suspense>
 
-              <Suspense fallback={null} >
-                <Sphere2 position={[7, 4.4, 6]} rotation-x={1} />
-              </Suspense>
-       
-
-    
             <ReflectorComp
               position={[7, 4.4, 6]}
               rotation-x={15}
               rotation-y={3}
-            ></ReflectorComp>
+            />
             <Draggable />
             <OrbitControls />
           </Canvas>

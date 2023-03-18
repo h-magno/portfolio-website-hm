@@ -1,10 +1,10 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@react-three/fiber', '@types/three', 'three' ],
+  transpilePackages: ['@react-three/fiber', '@types/three', 'three'],
   experimental: {
-    appDir: true,
-  },
+    appDir: true
+  }
 }
 
 module.exports = nextConfig

@@ -17,7 +17,7 @@ export default function MyCameraRef() {
 
   return (
     <>
-      
+
       {/* {console.log(cameraRef)} */}
     </>
   );

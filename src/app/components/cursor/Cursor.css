@@ -3,12 +3,11 @@
 }
 
 .customCursor {
-    
+
     position: absolute;
     top: 0;
     left: 0;
     pointer-events: none;
-
 
     width: 0px;
     height: 0px;

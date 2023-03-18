@@ -1,10 +1,9 @@
-const TestGlean = () => {
-    <TesteUm     />
-    return <></>
+function TestGlean() {
+  <TesteUm />;
+  return <></>;
 }
 
-
-    function TesteUm({}) {
-      return (<div id='teste-1'></div>);
-    }
-  export default TestGlean
+function TesteUm({}) {
+  return (<div id="teste-1" />);
+}
+export default TestGlean;

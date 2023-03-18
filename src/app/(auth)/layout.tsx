@@ -4,12 +4,12 @@ interface AuthLayoutProps {
   children: ReactNode;
 }
 
-const AuthLayout = ({ children }: AuthLayoutProps) => {
+function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <>
-        {children}
+      {children}
     </>
   );
-};
+}
 
 export default AuthLayout;

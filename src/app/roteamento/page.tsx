@@ -1,4 +1,6 @@
-'use client';import { useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import {
   useRouter,
@@ -6,12 +8,12 @@ import {
   useSearchParams,
   useSelectedLayoutSegments,
   redirect,
-  notFound
+  notFound,
 } from 'next/navigation';
 import { Button, Box } from '@mui/material';
 
 const routeTypes = () => {
-  //**************************************************************
+  //* *************************************************************
   // Utilizado para fazer a navegação do usuário, assim como o Link
   const routerPush = useRouter();
   // O PATH que estiver dentro prefech começará a ser carregado assim que o usuario entrar na pagina
@@ -20,16 +22,16 @@ const routeTypes = () => {
   const routerRefresh = useRouter();
   // Não sei
   const routerReplace = useRouter();
-  //**************************************************************
+  //* *************************************************************
   // Utiliza o nome da rota atual
   const routerPathname = usePathname();
-  //**************************************************************
+  //* *************************************************************
   // Pegar or parametros da URL após "?"
   const routerSearchParams = useSearchParams();
-  //**************************************************************
+  //* *************************************************************
   // Redireciona o usuário para a sua pagina Not found
   //   const notFoundLink = notFound();
-  //**************************************************************
+  //* *************************************************************
   // Redireciona o usuário para determinada rota
   //   const redirects = redirect('/');
 
@@ -49,12 +51,12 @@ const routeTypes = () => {
         width: '300px',
         background: 'red',
         Button: {
-          margin: '5px 0px' 
-        }
+          margin: '5px 0px',
+        },
       }}
     >
       {/* Link normal, vale ressaltar a opção ACTIVE LINK para destacar o link que está sendo utilizado no moemnto */}
-      <Link href={'/'}>
+      <Link href="/">
         <Button variant="contained">Navegação tradicional</Button>
       </Link>
       {/* // PARA NAVEGAÇÕES APÓS ALGUMA AÇÃO DO USUÁRIO(com funçoes): */}
@@ -82,7 +84,11 @@ const routeTypes = () => {
             Pathname
           </Button>
         ) : (
-          <> {usePathname()} </>
+          <>
+            {' '}
+            {usePathname()}
+            {' '}
+          </>
         )}
       </div>
       {/* <div>
@@ -90,10 +96,9 @@ const routeTypes = () => {
           <Button variant="contained" onClick={() => setDataTest4(true)}>
             Search Params
           </Button>
-        ) : 
+        ) :
         (() => { console.log(routerSearchParams); return <p> Olhe o console do navegador </p> ; })()
-        
-          
+
         }
       </div> */}
     </Box>

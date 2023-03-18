@@ -1,6 +1,6 @@
-import { useRef, useEffect } from 'react';import './Cursor.css';
+import { useRef, useEffect } from 'react'; import './Cursor.css';
 
-const Cursor = () => {
+function Cursor() {
   const dot: any = useRef(null);
   const delay = 5;
   const cursorVisible = useRef(true);
@@ -28,7 +28,7 @@ const Cursor = () => {
       document.removeEventListener('mousemove', mouseMoveEvent);
       document.removeEventListener('mouseenter', mouseEnterEvent);
       document.removeEventListener('mouseleave', mouseLeaveEvent);
-      cancelAnimationFrame(requestRef.current)
+      cancelAnimationFrame(requestRef.current);
     };
   }, []);
 
@@ -73,25 +73,23 @@ const Cursor = () => {
     endX.current = e.pageX;
     endY.current = e.pageY;
 
-    dot.current.style.top = endY.current + 'px';
-    dot.current.style.left = endX.current + 'px';
+    dot.current.style.top = `${endY.current}px`;
+    dot.current.style.left = `${endX.current}px`;
   };
 
   const animateDotOutline = () => {
     _x.current += (endX.current - _x.current) / delay;
     _y.current += (endY.current - _y.current) / delay;
 
-    dot.current.style.top = _y.current + 'px';
-    dot.current.style.left = _x.current + 'px';
+    dot.current.style.top = `${_y.current}px`;
+    dot.current.style.left = `${_x.current}px`;
 
     requestRef.current = requestAnimationFrame(animateDotOutline);
   };
 
   return (
-    <>
-      <div ref={dot} className="customCursor"></div>
-    </>
+    <div ref={dot} className="customCursor" />
   );
-};
+}
 
 export default Cursor;

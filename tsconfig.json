@@ -31,7 +31,7 @@
         ".next/types/**/*.ts",
         "src/app/components/react-three-fiber/sphere/Sphere.tsx",
         "src/app/components/last-projects/LastProjects.tsx"
-, "src/app/components/HomeComps/home-video-title/VideoTitle.tsx"    ],
+, "src/app/components/HomeComps/home-video-title/VideoTitle.tsx", "src/app/components/new-main-projects/NewMainProjects.tsx"    ],
     "exclude": ["node_modules"],
     "tailwindCSS.includeLanguages": {
         "html": "html",
